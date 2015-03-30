@@ -66,7 +66,7 @@
         </SQLField>
         <forcedUnique><![CDATA[1]]></forcedUnique>
         <hidden><![CDATA[0]]></hidden>
-        <labelWindowIndex><![CDATA[3]]></labelWindowIndex>
+        <labelWindowIndex><![CDATA[8]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
         <uid><![CDATA[00CD6E53-92B5-4494-945C-3C5B10FDB1B4]]></uid>
     </SQLTable>
@@ -100,7 +100,7 @@
         </SQLField>
         <forcedUnique><![CDATA[1]]></forcedUnique>
         <hidden><![CDATA[0]]></hidden>
-        <labelWindowIndex><![CDATA[2]]></labelWindowIndex>
+        <labelWindowIndex><![CDATA[7]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
         <uid><![CDATA[1E322839-E5AA-471E-825E-96147274C369]]></uid>
     </SQLTable>
@@ -153,6 +153,7 @@
             <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[7B4BC8A9-81B1-4B98-842D-592038A2D025]]></uid>
         </SQLField>
+        <labelWindowIndex><![CDATA[5]]></labelWindowIndex>
         <uid><![CDATA[24934EB0-D330-4A53-B14E-FFD3059DE506]]></uid>
     </SQLTable>
     <SQLTable>
@@ -209,6 +210,7 @@
             <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[87620D0E-4F52-441E-963B-63FFD34CBFCF]]></uid>
         </SQLField>
+        <labelWindowIndex><![CDATA[4]]></labelWindowIndex>
         <uid><![CDATA[2F762117-3B23-496A-A184-728739F300B9]]></uid>
     </SQLTable>
     <SQLTable>
@@ -257,7 +259,7 @@
             <uid><![CDATA[7DCD483A-158E-436F-9542-6899FEFAEBEB]]></uid>
         </SQLField>
         <hidden><![CDATA[0]]></hidden>
-        <labelWindowIndex><![CDATA[1]]></labelWindowIndex>
+        <labelWindowIndex><![CDATA[6]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
         <uid><![CDATA[3886C4B9-B238-45A9-9F92-2B293B01243A]]></uid>
     </SQLTable>
@@ -308,6 +310,7 @@
             <forcedUnique><![CDATA[0]]></forcedUnique>
             <uid><![CDATA[5217D78F-065C-4EE0-BC63-1A9FDADF16CA]]></uid>
         </SQLField>
+        <labelWindowIndex><![CDATA[3]]></labelWindowIndex>
         <uid><![CDATA[40AE439E-BB38-4D2A-9368-C678F37710DE]]></uid>
     </SQLTable>
     <SQLTable>
@@ -364,7 +367,7 @@
             <uid><![CDATA[BB9DE8D9-2A6A-4CDC-9E79-7D221D76B8F5]]></uid>
         </SQLField>
         <hidden><![CDATA[0]]></hidden>
-        <labelWindowIndex><![CDATA[0]]></labelWindowIndex>
+        <labelWindowIndex><![CDATA[2]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
         <uid><![CDATA[5D5CDD49-9975-4AC6-B4D4-C55FAFBB47AD]]></uid>
     </SQLTable>
@@ -407,6 +410,7 @@
             <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[F6FAE89D-C93D-4B8B-B2A5-E0BC0E62C0FD]]></uid>
         </SQLField>
+        <labelWindowIndex><![CDATA[1]]></labelWindowIndex>
         <uid><![CDATA[93B5E019-D2EE-4687-AA50-5BC86E70BEB2]]></uid>
     </SQLTable>
     <SQLTable>
@@ -459,6 +463,7 @@
             <type><![CDATA[INTEGER]]></type>
             <uid><![CDATA[9916570F-6F3F-4417-A577-A09F7AF2BABF]]></uid>
         </SQLField>
+        <labelWindowIndex><![CDATA[0]]></labelWindowIndex>
         <uid><![CDATA[C50078FF-A3ED-4C60-AAC9-0E43134F5698]]></uid>
     </SQLTable>
     <SQLTable>
@@ -531,7 +536,7 @@
             <uid><![CDATA[369E41B3-B089-46CB-9D36-C82B4D4D76B3]]></uid>
         </SQLField>
         <hidden><![CDATA[0]]></hidden>
-        <labelWindowIndex><![CDATA[4]]></labelWindowIndex>
+        <labelWindowIndex><![CDATA[9]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
         <uid><![CDATA[DE480511-0450-4571-8A5B-82AAEA7FD163]]></uid>
     </SQLTable>
@@ -688,6 +693,7 @@ c28tYTSGhoY=
 ]]></encodedPrintInfo>
         <autoSizeTablesOption><![CDATA[1]]></autoSizeTablesOption>
         <documentScaleFactor><![CDATA[0.818]]></documentScaleFactor>
+        <dropTableOption><![CDATA[0]]></dropTableOption>
         <exportDialect><![CDATA[mysql]]></exportDialect>
         <fileversion><![CDATA[3.1]]></fileversion>
         <generator><![CDATA[com.malcolmhardie.sqleditor]]></generator>
