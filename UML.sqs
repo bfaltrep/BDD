@@ -85,7 +85,7 @@
         </location>
         <size>
             <width>233.00</width>
-            <height>220.00</height>
+            <height>200.00</height>
         </size>
         <zorder>5</zorder>
         <SQLField>
@@ -130,11 +130,6 @@
             <uid><![CDATA[3876530D-3057-4CA4-BEB7-C300BEC22273]]></uid>
         </SQLField>
         <SQLField>
-            <name><![CDATA[Date de péremption]]></name>
-            <type><![CDATA[DATE]]></type>
-            <uid><![CDATA[FDA4CCF9-F6CB-4F0C-BFCC-E498F74CEFE0]]></uid>
-        </SQLField>
-        <SQLField>
             <name><![CDATA[Prix unitaire HT VENTE]]></name>
             <type><![CDATA[INTEGER]]></type>
             <forcedUnique><![CDATA[0]]></forcedUnique>
@@ -147,12 +142,12 @@
         </SQLField>
         <SQLField>
             <name><![CDATA[Date_debut_disponibilite]]></name>
-            <type><![CDATA[CHAR]]></type>
+            <type><![CDATA[DATE]]></type>
             <uid><![CDATA[B24DCFBE-BE30-4E8C-8DD1-6B83E9002331]]></uid>
         </SQLField>
         <SQLField>
             <name><![CDATA[Date-fin_disponibilite]]></name>
-            <type><![CDATA[CHAR]]></type>
+            <type><![CDATA[DATE]]></type>
             <uid><![CDATA[25B42910-68E2-42D7-B239-99E827B1C64A]]></uid>
         </SQLField>
         <forcedUnique><![CDATA[1]]></forcedUnique>
@@ -838,7 +833,7 @@ c28tYTSGhoY=
         <windowHeight><![CDATA[705.000000]]></windowHeight>
         <windowLocationX><![CDATA[0.000000]]></windowLocationX>
         <windowLocationY><![CDATA[0.000000]]></windowLocationY>
-        <windowScrollOrigin><![CDATA[{790, 9}]]></windowScrollOrigin>
+        <windowScrollOrigin><![CDATA[{461, 137}]]></windowScrollOrigin>
         <windowWidth><![CDATA[1366.000000]]></windowWidth>
     </SQLDocumentInfo>
     <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>

@@ -48,11 +48,10 @@ IDCategorie INTEGER,
 'Nom produit' VARCHAR2 NOT NULL,
 Quantite INTEGER,
 'Date dajout' DATE,
-'Date de péremption' DATE,
 'Prix unitaire HT VENTE' INTEGER,
 'Prix unitaire TTC VENTE' INTEGER,
-Date_debut_disponibilite CHAR,
-Date-fin_disponibilite CHAR,
+Date_debut_disponibilite DATE,
+Date-fin_disponibilite DATE,
 PRIMARY KEY (IDProduit,IDCategorie)
 );
 
