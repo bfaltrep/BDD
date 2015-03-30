@@ -35,13 +35,13 @@ PRIMARY KEY (IDEntreprise)
 
 CREATE TABLE Livraison
 (
-IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
+'Date livraison' DATE NOT NULL,
 IDEntreprise INTEGER NOT NULL,
 IDProduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL,
+IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 Quantite UNSIGNED-INTEGER NOT NULL,
-'Date livraison' DATE NOT NULL,
-PRIMARY KEY (IDEntreprise,IDProduit,IDCategorie,'Date livraison')
+PRIMARY KEY ('Date livraison',IDEntreprise,IDProduit,IDCategorie)
 );
 
 CREATE TABLE Production
@@ -97,12 +97,13 @@ PRIMARY KEY (IDCommande)
 
 CREATE TABLE Stock
 (
-IDLivraison INTEGER,
-IDPoduit INTEGER,
-IDCategorie INTEGER,
+IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
+IDPoduit INTEGER NOT NULL,
+IDCategorie INTEGER NOT NULL UNIQUE,
 Quantite VARCHAR,
 'Date de peremption' DATE,
-IDProduit INTEGER
+IDProduit INTEGER,
+PRIMARY KEY (IDLivraison,IDPoduit,IDCategorie)
 );
 
 ALTER TABLE Livraison ADD FOREIGN KEY (IDCategorie) REFERENCES Entreprise (IDEntreprise);
