@@ -18,17 +18,20 @@ Telephone CHAR,
 Email CHAR NOT NULL,
 `Mot de passe` CHAR NOT NULL,
 `Date dinscription` DATE NOT NULL,
+NBCommande INTEGER NOT NULL,
 PRIMARY KEY (IDClient)
 );
 
 CREATE TABLE Commande
 (
 IDCommande INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-IDClinent INTEGER,
+IDClient INTEGER,
+IDRemise INTEGER,
 `Date Commande` DATE NOT NULL,
 `Prix HT` INTEGER NOT NULL,
 `Prix TTC` INTEGER NOT NULL,
-PRIMARY KEY (IDCommande)
+PRIMARY KEY (IDCommande),
+FOREIGN KEY (IDRemise) REFERENCES Remise(IDRemise)
 );
 
 CREATE TABLE Entreprise
@@ -87,18 +90,11 @@ CREATE TABLE Remise
 (
 IDRemise INTEGER NOT NULL UNIQUE,
 `Type remise` CHAR NOT NULL,
-Remise INTEGER NOT NULL,
+Remise INTEGER,
 `Condition nb commande` INTEGER NOT NULL,
 PRIMARY KEY (IDRemise)
 );
 
-CREATE TABLE Fidelité
-(
-IDClient INTEGER NOT NULL UNIQUE,
-NBCommande INTEGER,
-IDRemise INTEGER,
-PRIMARY KEY (IDClient)
-);
 
 ALTER TABLE Commande ADD FOREIGN KEY IDClinent_idxfk (IDClinent) REFERENCES Client (IDClient);
 
@@ -109,7 +105,3 @@ ALTER TABLE Production ADD FOREIGN KEY IDEntreprise_idxfk (IDEntreprise) REFEREN
 ALTER TABLE Produit ADD FOREIGN KEY IDCategorie_idxfk (IDCategorie) REFERENCES Categorie (IDCategorie);
 
 ALTER TABLE Panier ADD FOREIGN KEY IDProduit_idxfk (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
-
-ALTER TABLE Fidelité ADD FOREIGN KEY IDClient_idxfk (IDClient) REFERENCES Client (IDClient);
-
-ALTER TABLE Fidelité ADD FOREIGN KEY IDRemise_idxfk (IDRemise) REFERENCES Remise (IDRemise);
