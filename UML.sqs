@@ -167,13 +167,11 @@
         </size>
         <zorder>3</zorder>
         <SQLField>
-            <name><![CDATA[IDLivraison]]></name>
-            <type><![CDATA[INTEGER]]></type>
-            <autoIncrement><![CDATA[1]]></autoIncrement>
-            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <name><![CDATA[Date livraison]]></name>
+            <type><![CDATA[DATE]]></type>
+            <primaryKey>1</primaryKey>
             <notNull><![CDATA[1]]></notNull>
-            <uid><![CDATA[A42D5194-0E5E-41FF-9A5F-B87AEAF7A459]]></uid>
-            <unique><![CDATA[1]]></unique>
+            <uid><![CDATA[57EA77DD-3EB0-43F4-B666-BB92E2F600AD]]></uid>
         </SQLField>
         <SQLField>
             <name><![CDATA[IDEntreprise]]></name>
@@ -205,17 +203,19 @@
             <uid><![CDATA[F95ACFD7-590D-4DE3-A7E5-3008C83A51A6]]></uid>
         </SQLField>
         <SQLField>
+            <name><![CDATA[IDLivraison]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[A42D5194-0E5E-41FF-9A5F-B87AEAF7A459]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
             <name><![CDATA[Quantite]]></name>
             <type><![CDATA[UNSIGNED-INTEGER]]></type>
             <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[3F3681FF-0744-43F9-BF43-7CEA555F513C]]></uid>
-        </SQLField>
-        <SQLField>
-            <name><![CDATA[Date livraison]]></name>
-            <type><![CDATA[DATE]]></type>
-            <primaryKey>1</primaryKey>
-            <notNull><![CDATA[1]]></notNull>
-            <uid><![CDATA[57EA77DD-3EB0-43F4-B666-BB92E2F600AD]]></uid>
         </SQLField>
         <labelWindowIndex><![CDATA[6]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
@@ -449,13 +449,14 @@
             <y>439.00</y>
         </location>
         <size>
-            <width>200.00</width>
+            <width>264.00</width>
             <height>140.00</height>
         </size>
         <zorder>9</zorder>
         <SQLField>
             <name><![CDATA[IDLivraison]]></name>
             <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
             <referencesField>IDLivraison</referencesField>
             <referencesTable>Livraison</referencesTable>
             <referencesField><![CDATA[IDLivraison]]></referencesField>
@@ -464,12 +465,16 @@
             <destinationCardinality>0</destinationCardinality>
             <referencesFieldUID><![CDATA[A42D5194-0E5E-41FF-9A5F-B87AEAF7A459]]></referencesFieldUID>
             <referencesTableUID><![CDATA[43C6108A-A3AA-492C-9512-6F85DC7B0D3D]]></referencesTableUID>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
             <forcedUnique><![CDATA[0]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[3BE3C969-FACD-4A06-BB64-061FACD18DF6]]></uid>
+            <unique><![CDATA[1]]></unique>
         </SQLField>
         <SQLField>
             <name><![CDATA[IDPoduit]]></name>
             <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
             <referencesField>IDProduit</referencesField>
             <referencesTable>Produit</referencesTable>
             <referencesField><![CDATA[IDProduit]]></referencesField>
@@ -480,12 +485,16 @@
             <referencesTableUID><![CDATA[4323274E-5751-4614-B992-163BC1F49E71]]></referencesTableUID>
             <referenceDependentField><![CDATA[DDAC9625-0DE3-4986-B56F-6479861047EF]]></referenceDependentField>
             <forcedUnique><![CDATA[0]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[4A5B0A8E-3896-4EAF-B14B-D7A37A72ED70]]></uid>
         </SQLField>
         <SQLField>
             <name><![CDATA[IDCategorie]]></name>
             <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[DDAC9625-0DE3-4986-B56F-6479861047EF]]></uid>
+            <unique><![CDATA[1]]></unique>
         </SQLField>
         <SQLField>
             <name><![CDATA[Quantite]]></name>
