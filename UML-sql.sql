@@ -66,33 +66,35 @@ Quantite INTEGER,
 PRIMARY KEY (IDProduit,IDCategorie)
 );
 
+CREATE TABLE detail_commandes
+(
+idCommande INTEGER,
+IDProduit INTEGER,
+IDCategorie INTEGER,
+Prix_HT INTEGER,
+Prix_TTC INTEGER,
+Quantite CHAR,
+IDEntreprise INTEGER,
+PRIMARY KEY (idCommande,IDProduit,IDCategorie)
+);
+
 CREATE TABLE Panier
 (
 IDPanier INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 IDProduit INTEGER,
 IDCategorie INTEGER,
-Quantit INTEGER,
+Quantite INTEGER,
 PRIMARY KEY (IDPanier)
 );
 
 CREATE TABLE Remise
 (
 IDRemise INTEGER NOT NULL UNIQUE,
-'Type remise' VARCHAR2 NOT NULL,
+Type_remise VARCHAR2 NOT NULL,
 Remise INTEGER,
-'Condition nb commande' INTEGER NOT NULL,
+Condition_nb_commande INTEGER,
+Condition_date_dinscription INTEGER,
 PRIMARY KEY (IDRemise)
-);
-
-CREATE TABLE Commande
-(
-IDCommande INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
-IDClient INTEGER,
-IDRemise INTEGER,
-'Date Commande' DATE NOT NULL,
-'Prix HT' INTEGER NOT NULL,
-'Prix TTC' INTEGER NOT NULL,
-PRIMARY KEY (IDCommande)
 );
 
 CREATE TABLE Stock
@@ -106,18 +108,34 @@ IDProduit INTEGER,
 PRIMARY KEY (IDLivraison,IDPoduit,IDCategorie)
 );
 
+CREATE TABLE Commande
+(
+idCommande INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
+idClient INTEGER,
+'Date' DATE,
+IDRemise INTEGER,
+Valide INTEGER,
+PRIX_HT INTEGER,
+PRIX_TTC INTEGER,
+PRIMARY KEY (id_commande)
+);
+
 ALTER TABLE Livraison ADD FOREIGN KEY (IDCategorie) REFERENCES Entreprise (IDEntreprise);
 
 ALTER TABLE Production ADD FOREIGN KEY (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
 
 ALTER TABLE Produit ADD FOREIGN KEY (IDCategorie) REFERENCES Categorie (IDCategorie);
 
+ALTER TABLE detail_commandes ADD FOREIGN KEY (idCommande) REFERENCES Commande (idCommande);
+
+ALTER TABLE detail_commandes ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
+
 ALTER TABLE Panier ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
-
-ALTER TABLE Commande ADD FOREIGN KEY (IDClient) REFERENCES Client (IDClient);
-
-ALTER TABLE Commande ADD FOREIGN KEY (IDRemise) REFERENCES Remise (IDRemise);
 
 ALTER TABLE Stock ADD FOREIGN KEY (IDLivraison) REFERENCES Livraison (IDLivraison);
 
 ALTER TABLE Stock ADD FOREIGN KEY (IDPoduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
+
+ALTER TABLE Commande ADD FOREIGN KEY (idClient) REFERENCES Client (IDClient);
+
+ALTER TABLE Commande ADD FOREIGN KEY (IDRemise) REFERENCES Remise (IDRemise);
