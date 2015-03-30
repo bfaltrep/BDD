@@ -37,14 +37,14 @@ IDEntreprise INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
 `Nom Entreprise` CHAR NOT NULL,
 Rue CHAR NOT NULL,
 Ville CHAR NOT NULL,
-IDproduit INTEGER,
+IDProduit INTEGER,
 IDCategorie INTEGER,
 PRIMARY KEY (IDEntreprise)
 );
 
 CREATE TABLE Livraison
 (
-IDentreprise INTEGER NOT NULL,
+IDEntreprise INTEGER NOT NULL,
 IDProduit INTEGER NOT NULL,
 IDcategorie INTEGER NOT NULL,
 `Date livraison` DATE NOT NULL,
@@ -53,7 +53,7 @@ PRIMARY KEY (IDentreprise,IDProduit,IDcategorie,`Date livraison`)
 
 CREATE TABLE Production
 (
-IDproduit INTEGER NOT NULL,
+IDProduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL,
 IDEntreprise INTEGER NOT NULL,
 `Mois de production` DATE NOT NULL,
