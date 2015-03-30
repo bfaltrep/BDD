@@ -1,4 +1,4 @@
-/* SQLEditor (MySQL (2))*/
+/* SQLEditor (Generic SQL)*/
 
 CREATE TABLE Categorie
 (
@@ -20,18 +20,6 @@ Email VARCHAR2 NOT NULL,
 `Date dinscription` DATE NOT NULL,
 NBCommande INTEGER NOT NULL,
 PRIMARY KEY (IDClient)
-);
-
-CREATE TABLE Commande
-(
-IDCommande INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-IDClient INTEGER,
-IDRemise INTEGER,
-`Date Commande` DATE NOT NULL,
-`Prix HT` INTEGER NOT NULL,
-`Prix TTC` INTEGER NOT NULL,
-PRIMARY KEY (IDCommande),
-FOREIGN KEY (IDRemise) REFERENCES Remise(IDRemise)
 );
 
 CREATE TABLE Entreprise
@@ -56,6 +44,15 @@ Quantite UNSIGNED-INTEGER NOT NULL,
 PRIMARY KEY (IDentreprise,IDProduit,IDcategorie,`Date livraison`)
 );
 
+CREATE TABLE Panier
+(
+IDPanier INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
+IDProduit INTEGER,
+IDCategorie INTEGER,
+Quantit INTEGER,
+PRIMARY KEY (IDPanier)
+);
+
 CREATE TABLE Production
 (
 IDProduit INTEGER NOT NULL,
@@ -68,7 +65,7 @@ PRIMARY KEY (IDproduit,IDCategorie,IDEntreprise)
 
 CREATE TABLE Produit
 (
-IDProduit INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+IDProduit INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 IDCategorie INTEGER,
 `Nom produit` VARCHAR2 NOT NULL,
 Quantite INTEGER,
@@ -92,16 +89,29 @@ CREATE TABLE Remise
 IDRemise INTEGER NOT NULL UNIQUE,
 `Type remise` VARCHAR2 NOT NULL,
 Remise INTEGER,
-`Condition nb commande` INTEGER NOT NULL,
+'Condition nb commande' INTEGER NOT NULL,
 PRIMARY KEY (IDRemise)
 );
 
+CREATE TABLE Commande
+(
+IDCommande INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
+IDClient INTEGER,
+IDRemise INTEGER,
+'Date Commande' DATE NOT NULL,
+'Prix HT' INTEGER NOT NULL,
+'Prix TTC' INTEGER NOT NULL,
+PRIMARY KEY (IDCommande)
+);
+
+ALTER TABLE Livraison ADD FOREIGN KEY (IDcategorie) REFERENCES Entreprise (IDEntreprise);
+
 ALTER TABLE Commande ADD FOREIGN KEY IDClinent_idxfk (IDClinent) REFERENCES Client (IDClient);
 
-ALTER TABLE Livraison ADD FOREIGN KEY IDcategorie_idxfk (IDcategorie) REFERENCES Entreprise (IDEntreprise);
+ALTER TABLE Panier ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
 
-ALTER TABLE Production ADD FOREIGN KEY IDEntreprise_idxfk (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
+ALTER TABLE Production ADD FOREIGN KEY (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
 
-ALTER TABLE Produit ADD FOREIGN KEY IDCategorie_idxfk (IDCategorie) REFERENCES Categorie (IDCategorie);
+ALTER TABLE Produit ADD FOREIGN KEY (IDCategorie) REFERENCES Categorie (IDCategorie);
 
-ALTER TABLE Panier ADD FOREIGN KEY IDProduit_idxfk (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
+ALTER TABLE Commande ADD FOREIGN KEY (IDRemise) REFERENCES Remise (IDRemise);
