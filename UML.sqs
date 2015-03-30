@@ -112,12 +112,12 @@
             <y>553.00</y>
         </location>
         <size>
-            <width>228.00</width>
+            <width>230.00</width>
             <height>100.00</height>
         </size>
         <zorder>8</zorder>
         <SQLField>
-            <name><![CDATA[IDentreprise]]></name>
+            <name><![CDATA[IDEntreprise]]></name>
             <type><![CDATA[INTEGER]]></type>
             <primaryKey>1</primaryKey>
             <forcedUnique><![CDATA[0]]></forcedUnique>
@@ -132,7 +132,7 @@
             <uid><![CDATA[9C30A39B-558A-40D6-BF62-73EF36E99BDB]]></uid>
         </SQLField>
         <SQLField>
-            <name><![CDATA[IDcategorie]]></name>
+            <name><![CDATA[IDCategorie]]></name>
             <type><![CDATA[INTEGER]]></type>
             <primaryKey>1</primaryKey>
             <referencesField>IDEntreprise</referencesField>
@@ -335,7 +335,7 @@
             <unique><![CDATA[1]]></unique>
         </SQLField>
         <SQLField>
-            <name><![CDATA[IDClinent]]></name>
+            <name><![CDATA[IDClient]]></name>
             <type><![CDATA[INTEGER]]></type>
             <referencesField>IDClient</referencesField>
             <referencesTable>Client</referencesTable>
