@@ -28,19 +28,17 @@ IDEntreprise INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 'Nom Entreprise' VARCHAR2 NOT NULL,
 Rue VARCHAR2 NOT NULL,
 Ville VARCHAR2 NOT NULL,
-IDProduit INTEGER,
-IDCategorie INTEGER,
-'Date livraison' DATE,
 PRIMARY KEY (IDEntreprise)
 );
 
 CREATE TABLE Livraison
 (
+IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 'Date livraison' DATE NOT NULL,
 IDEntreprise INTEGER NOT NULL,
-IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 Frais_de_port INTEGER,
-PRIMARY KEY ('Date livraison',IDEntreprise)
+'Prix TOTAL HT' INTEGER,
+PRIMARY KEY (IDLivraison)
 );
 
 CREATE TABLE Produit
@@ -51,8 +49,8 @@ IDCategorie INTEGER,
 Quantite INTEGER,
 'Date dajout' DATE,
 'Date de péremption' DATE,
-'Prix unitaire HT' INTEGER,
-'Prix unitaire TTC' INTEGER,
+'Prix unitaire HT VENTE' INTEGER,
+'Prix unitaire TTC VENTE' INTEGER,
 Date_debut_disponibilite CHAR,
 Date-fin_disponibilite CHAR,
 PRIMARY KEY (IDProduit,IDCategorie)
@@ -73,7 +71,6 @@ IDCommande INTEGER,
 IDProduit INTEGER,
 IDCategorie INTEGER,
 Quantite CHAR,
-IDEntreprise INTEGER,
 PRIMARY KEY (IDCommande,IDProduit,IDCategorie)
 );
 
@@ -83,6 +80,8 @@ IDLivraison INTEGER NOT NULL UNIQUE,
 IDProduit INTEGER,
 IDCategorie INTEGER,
 Quantite INTEGER,
+'Prix unitaire HT ACHAT' INTEGER,
+'Prix unitaire TTC ACHAT' INTEGER,
 PRIMARY KEY (IDLivraison)
 );
 
