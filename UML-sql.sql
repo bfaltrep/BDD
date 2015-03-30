@@ -106,7 +106,7 @@ PRIMARY KEY (IDCommande)
 
 ALTER TABLE Livraison ADD FOREIGN KEY (IDcategorie) REFERENCES Entreprise (IDEntreprise);
 
-ALTER TABLE Commande ADD FOREIGN KEY IDClinent_idxfk (IDClinent) REFERENCES Client (IDClient);
+ALTER TABLE Commande ADD FOREIGN KEY IDClient_idxfk (IDClient) REFERENCES Client (IDClient);
 
 ALTER TABLE Panier ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
 
