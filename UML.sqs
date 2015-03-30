@@ -169,7 +169,7 @@
         </size>
         <zorder>6</zorder>
         <SQLField>
-            <name><![CDATA[IDproduit]]></name>
+            <name><![CDATA[IDProduit]]></name>
             <type><![CDATA[INTEGER]]></type>
             <primaryKey>1</primaryKey>
             <notNull><![CDATA[1]]></notNull>
