@@ -44,16 +44,6 @@ Quantite UNSIGNED-INTEGER NOT NULL,
 PRIMARY KEY ('Date livraison',IDEntreprise,IDProduit,IDCategorie)
 );
 
-CREATE TABLE Production
-(
-IDProduit INTEGER NOT NULL,
-IDCategorie INTEGER NOT NULL,
-IDEntreprise INTEGER NOT NULL,
-'Mois de production' DATE NOT NULL,
-'Lieu de production' VARCHAR2 NOT NULL,
-PRIMARY KEY (IDProduit,IDCategorie,IDEntreprise)
-);
-
 CREATE TABLE Produit
 (
 IDProduit INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
@@ -63,12 +53,22 @@ Quantite INTEGER,
 'Date dajout' DATE,
 'Date de péremption' DATE,
 'Prix unitaire' INTEGER,
+Date_debut_disponibilite CHAR,
+Date-fin_disponibilite CHAR,
 PRIMARY KEY (IDProduit,IDCategorie)
 );
 
-CREATE TABLE detail_commandes
+CREATE TABLE Production
 (
-idCommande INTEGER,
+IDEntreprise INTEGER NOT NULL,
+IDProduit INTEGER NOT NULL,
+IDCategorie INTEGER NOT NULL,
+PRIMARY KEY (IDEntreprise,IDProduit,IDCategorie)
+);
+
+CREATE TABLE Produit_par_commandes
+(
+IDCommande INTEGER,
 IDProduit INTEGER,
 IDCategorie INTEGER,
 Prix_HT INTEGER,
@@ -102,7 +102,7 @@ CREATE TABLE Stock
 IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 IDPoduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL UNIQUE,
-Quantite VARCHAR2,
+Quantite VARCHAR,
 'Date de peremption' DATE,
 IDProduit INTEGER,
 PRIMARY KEY (IDLivraison,IDPoduit,IDCategorie)
@@ -110,7 +110,7 @@ PRIMARY KEY (IDLivraison,IDPoduit,IDCategorie)
 
 CREATE TABLE Commande
 (
-idCommande INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
+IDCommande INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 idClient INTEGER,
 'Date' DATE,
 IDRemise INTEGER,
@@ -122,13 +122,15 @@ PRIMARY KEY (id_commande)
 
 ALTER TABLE Livraison ADD FOREIGN KEY (IDCategorie) REFERENCES Entreprise (IDEntreprise);
 
-ALTER TABLE Production ADD FOREIGN KEY (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
-
 ALTER TABLE Produit ADD FOREIGN KEY (IDCategorie) REFERENCES Categorie (IDCategorie);
 
-ALTER TABLE detail_commandes ADD FOREIGN KEY (idCommande) REFERENCES Commande (idCommande);
+ALTER TABLE Production ADD FOREIGN KEY (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
 
-ALTER TABLE detail_commandes ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
+ALTER TABLE Production ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
+
+ALTER TABLE Produit_par_commandes ADD FOREIGN KEY (IDCommande) REFERENCES Commande (IDCommande);
+
+ALTER TABLE Produit_par_commandes ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
 
 ALTER TABLE Panier ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
 

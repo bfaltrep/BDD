@@ -95,7 +95,7 @@
         </location>
         <size>
             <width>233.00</width>
-            <height>160.00</height>
+            <height>200.00</height>
         </size>
         <zorder>6</zorder>
         <SQLField>
@@ -147,7 +147,18 @@
         <SQLField>
             <name><![CDATA[Prix unitaire]]></name>
             <type><![CDATA[INTEGER]]></type>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
             <uid><![CDATA[337D8106-1693-4586-B352-F06A93367FEE]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date_debut_disponibilite]]></name>
+            <type><![CDATA[CHAR]]></type>
+            <uid><![CDATA[B24DCFBE-BE30-4E8C-8DD1-6B83E9002331]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date-fin_disponibilite]]></name>
+            <type><![CDATA[CHAR]]></type>
+            <uid><![CDATA[25B42910-68E2-42D7-B239-99E827B1C64A]]></uid>
         </SQLField>
         <forcedUnique><![CDATA[1]]></forcedUnique>
         <labelWindowIndex><![CDATA[4]]></labelWindowIndex>
@@ -276,12 +287,12 @@
             <y>87.00</y>
         </location>
         <size>
-            <width>258.00</width>
+            <width>260.00</width>
             <height>160.00</height>
         </size>
         <zorder>9</zorder>
         <SQLField>
-            <name><![CDATA[idCommande]]></name>
+            <name><![CDATA[IDCommande]]></name>
             <type><![CDATA[INTEGER]]></type>
             <primaryKey>1</primaryKey>
             <autoIncrement><![CDATA[1]]></autoIncrement>
@@ -343,29 +354,14 @@
         <name><![CDATA[Production]]></name>
         <schema><![CDATA[]]></schema>
         <location>
-            <x>647.00</x>
-            <y>83.00</y>
+            <x>699.00</x>
+            <y>236.00</y>
         </location>
         <size>
-            <width>234.00</width>
-            <height>120.00</height>
+            <width>236.00</width>
+            <height>80.00</height>
         </size>
         <zorder>5</zorder>
-        <SQLField>
-            <name><![CDATA[IDProduit]]></name>
-            <type><![CDATA[INTEGER]]></type>
-            <primaryKey>1</primaryKey>
-            <forcedUnique><![CDATA[0]]></forcedUnique>
-            <notNull><![CDATA[1]]></notNull>
-            <uid><![CDATA[560DED0E-66C6-4679-A537-6495704A6F08]]></uid>
-        </SQLField>
-        <SQLField>
-            <name><![CDATA[IDCategorie]]></name>
-            <type><![CDATA[INTEGER]]></type>
-            <primaryKey>1</primaryKey>
-            <notNull><![CDATA[1]]></notNull>
-            <uid><![CDATA[DE3CB3C8-6CD6-4E9B-869A-AA2BE219695C]]></uid>
-        </SQLField>
         <SQLField>
             <name><![CDATA[IDEntreprise]]></name>
             <type><![CDATA[INTEGER]]></type>
@@ -382,16 +378,28 @@
             <uid><![CDATA[89AF9799-B268-4EFE-8615-A2B137C3EB44]]></uid>
         </SQLField>
         <SQLField>
-            <name><![CDATA[Mois de production]]></name>
-            <type><![CDATA[DATE]]></type>
+            <name><![CDATA[IDProduit]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDProduit</referencesField>
+            <referencesTable>Produit</referencesTable>
+            <referencesField><![CDATA[IDProduit]]></referencesField>
+            <referencesTable><![CDATA[Produit]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[5D2DBDDF-FA0B-41C6-A2C4-4D48FA64358B]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[4323274E-5751-4614-B992-163BC1F49E71]]></referencesTableUID>
+            <referenceDependentField><![CDATA[DE3CB3C8-6CD6-4E9B-869A-AA2BE219695C]]></referenceDependentField>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
             <notNull><![CDATA[1]]></notNull>
-            <uid><![CDATA[1FAFA311-71AF-4676-A0DE-D6CFF8A8EC67]]></uid>
+            <uid><![CDATA[560DED0E-66C6-4679-A537-6495704A6F08]]></uid>
         </SQLField>
         <SQLField>
-            <name><![CDATA[Lieu de production]]></name>
-            <type><![CDATA[VARCHAR2]]></type>
+            <name><![CDATA[IDCategorie]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
             <notNull><![CDATA[1]]></notNull>
-            <uid><![CDATA[A050EAF5-971E-4833-89EF-EC0D67DB4E72]]></uid>
+            <uid><![CDATA[DE3CB3C8-6CD6-4E9B-869A-AA2BE219695C]]></uid>
         </SQLField>
         <labelWindowIndex><![CDATA[5]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
@@ -602,24 +610,24 @@
         <uid><![CDATA[958D1A36-5DE8-48DB-BFC9-7EFFA90918A2]]></uid>
     </SQLTable>
     <SQLTable>
-        <name><![CDATA[detail_commandes]]></name>
+        <name><![CDATA[Produit_par_commandes]]></name>
         <schema><![CDATA[]]></schema>
         <location>
             <x>369.00</x>
             <y>408.00</y>
         </location>
         <size>
-            <width>220.00</width>
+            <width>222.00</width>
             <height>160.00</height>
         </size>
         <zorder>10</zorder>
         <SQLField>
-            <name><![CDATA[idCommande]]></name>
+            <name><![CDATA[IDCommande]]></name>
             <type><![CDATA[INTEGER]]></type>
             <primaryKey>1</primaryKey>
-            <referencesField>idCommande</referencesField>
+            <referencesField>IDCommande</referencesField>
             <referencesTable>Commande</referencesTable>
-            <referencesField><![CDATA[idCommande]]></referencesField>
+            <referencesField><![CDATA[IDCommande]]></referencesField>
             <referencesTable><![CDATA[Commande]]></referencesTable>
             <sourceCardinality>0</sourceCardinality>
             <destinationCardinality>0</destinationCardinality>
@@ -825,7 +833,7 @@ D05TU2NhbGluZ0ZhY3RvcoaShKOeqKIBhpKEmZkLTlNQYXBlck5hbWWGkoSZmQZp
 c28tYTSGhoY=
 ]]></encodedPrintInfo>
         <autoSizeTablesOption><![CDATA[0]]></autoSizeTablesOption>
-        <documentScaleFactor><![CDATA[0.864]]></documentScaleFactor>
+        <documentScaleFactor><![CDATA[0.578]]></documentScaleFactor>
         <dropTableOption><![CDATA[0]]></dropTableOption>
         <exportDialect><![CDATA[generic]]></exportDialect>
         <fileversion><![CDATA[3.1]]></fileversion>
@@ -842,7 +850,7 @@ c28tYTSGhoY=
         <windowHeight><![CDATA[705.000000]]></windowHeight>
         <windowLocationX><![CDATA[0.000000]]></windowLocationX>
         <windowLocationY><![CDATA[0.000000]]></windowLocationY>
-        <windowScrollOrigin><![CDATA[{18, 0}]]></windowScrollOrigin>
+        <windowScrollOrigin><![CDATA[{0, 0}]]></windowScrollOrigin>
         <windowWidth><![CDATA[1366.000000]]></windowWidth>
     </SQLDocumentInfo>
     <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>
