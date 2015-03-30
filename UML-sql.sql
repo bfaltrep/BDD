@@ -47,6 +47,7 @@ CREATE TABLE Livraison
 IDEntreprise INTEGER NOT NULL,
 IDProduit INTEGER NOT NULL,
 IDcategorie INTEGER NOT NULL,
+Quantité INTEGER NOT NULL, 
 `Date livraison` DATE NOT NULL,
 PRIMARY KEY (IDentreprise,IDProduit,IDcategorie,`Date livraison`)
 );
