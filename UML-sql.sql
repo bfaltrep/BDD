@@ -100,7 +100,7 @@ CREATE TABLE Stock
 IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
 IDPoduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL UNIQUE,
-Quantite VARCHAR,
+Quantite VARCHAR2,
 'Date de peremption' DATE,
 IDProduit INTEGER,
 PRIMARY KEY (IDLivraison,IDPoduit,IDCategorie)
