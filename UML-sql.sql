@@ -30,6 +30,7 @@ Rue VARCHAR2 NOT NULL,
 Ville VARCHAR2 NOT NULL,
 IDProduit INTEGER,
 IDCategorie INTEGER,
+'Date livraison' DATE,
 PRIMARY KEY (IDEntreprise)
 );
 
@@ -37,11 +38,9 @@ CREATE TABLE Livraison
 (
 'Date livraison' DATE NOT NULL,
 IDEntreprise INTEGER NOT NULL,
-IDProduit INTEGER NOT NULL,
-IDCategorie INTEGER NOT NULL,
 IDLivraison INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
-Quantite UNSIGNED-INTEGER NOT NULL,
-PRIMARY KEY ('Date livraison',IDEntreprise,IDProduit,IDCategorie)
+Frais_de_port INTEGER,
+PRIMARY KEY ('Date livraison',IDEntreprise)
 );
 
 CREATE TABLE Produit
@@ -52,7 +51,8 @@ IDCategorie INTEGER,
 Quantite INTEGER,
 'Date dajout' DATE,
 'Date de péremption' DATE,
-'Prix unitaire' INTEGER,
+'Prix unitaire HT' INTEGER,
+'Prix unitaire TTC' INTEGER,
 Date_debut_disponibilite CHAR,
 Date-fin_disponibilite CHAR,
 PRIMARY KEY (IDProduit,IDCategorie)
@@ -63,6 +63,7 @@ CREATE TABLE Production
 IDEntreprise INTEGER NOT NULL,
 IDProduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL,
+IDCategorie_1 INTEGER,
 PRIMARY KEY (IDEntreprise,IDProduit,IDCategorie)
 );
 
@@ -71,20 +72,18 @@ CREATE TABLE Produit_par_commandes
 IDCommande INTEGER,
 IDProduit INTEGER,
 IDCategorie INTEGER,
-Prix_HT INTEGER,
-Prix_TTC INTEGER,
 Quantite CHAR,
 IDEntreprise INTEGER,
-PRIMARY KEY (idCommande,IDProduit,IDCategorie)
+PRIMARY KEY (IDCommande,IDProduit,IDCategorie)
 );
 
-CREATE TABLE Panier
+CREATE TABLE Produit_par_livraison
 (
-IDPanier INTEGER NOT NULL AUTO_INCREMENT  UNIQUE,
+IDLivraison INTEGER NOT NULL UNIQUE,
 IDProduit INTEGER,
 IDCategorie INTEGER,
 Quantite INTEGER,
-PRIMARY KEY (IDPanier)
+PRIMARY KEY (IDLivraison)
 );
 
 CREATE TABLE Remise
@@ -104,7 +103,6 @@ IDPoduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL UNIQUE,
 Quantite VARCHAR,
 'Date de peremption' DATE,
-IDProduit INTEGER,
 PRIMARY KEY (IDLivraison,IDPoduit,IDCategorie)
 );
 
@@ -117,10 +115,11 @@ IDRemise INTEGER,
 Valide INTEGER,
 PRIX_HT INTEGER,
 PRIX_TTC INTEGER,
-PRIMARY KEY (id_commande)
+'Frais de port' INTEGER,
+PRIMARY KEY (IDCommande)
 );
 
-ALTER TABLE Livraison ADD FOREIGN KEY (IDCategorie) REFERENCES Entreprise (IDEntreprise);
+ALTER TABLE Livraison ADD FOREIGN KEY (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
 
 ALTER TABLE Produit ADD FOREIGN KEY (IDCategorie) REFERENCES Categorie (IDCategorie);
 
@@ -132,7 +131,9 @@ ALTER TABLE Produit_par_commandes ADD FOREIGN KEY (IDCommande) REFERENCES Comman
 
 ALTER TABLE Produit_par_commandes ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
 
-ALTER TABLE Panier ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
+ALTER TABLE Produit_par_livraison ADD FOREIGN KEY (IDLivraison) REFERENCES Livraison (IDLivraison);
+
+ALTER TABLE Produit_par_livraison ADD FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
 
 ALTER TABLE Stock ADD FOREIGN KEY (IDLivraison) REFERENCES Livraison (IDLivraison);
 
