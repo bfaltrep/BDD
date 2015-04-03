@@ -26,7 +26,7 @@
 
 
 \begin{document}
-	\begin{spacing}{1.2}
+    \begin{spacing}{1.2}
 \maketitle%sert a afficher le title dans le document, sinon serait des méta données.
 %\tableofcontents
 \newpage
@@ -38,8 +38,43 @@ IDENTIFIANTS SONT MAILS.
 
 \textcolor{colortitre2}{\subsection*{Dépendances fonctionnelle}} \addcontentsline{toc}{subsection}{Dépendances fonctionnelle}
 
-\textcolor{colortitre3}{\subsubsection*{Client}}
-	
+\begin{table}
+    \label{multiprogram}
+    \begin{tabular}{c|c|c|c|c|}
+        \cline{2-5}
+         & 1FN & 2FN & 3FN & BCNF \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Client}{Client}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Ville}{Ville}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Commande}{Commande}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Remise}{Remise}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{ppc}{Produit\_par\_commandes}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Produit}{Produit}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Categorie}{Categorie}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Stock}{Stock}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Production}{Production}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Entreprise}{Entreprise}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Produit\_par\_livraison}{ppl}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Livraison}{Livraison}} & OK & OK & OK & OK \\
+        \hline
+        \multicolumn{1}{|c|}{\hyperlink{Admin}{Admin}} & OK & OK & OK & OK \\
+        \hline
+    \end{tabular}
+\end{table}
+    
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{CLient}{Client}}}
+    
 IDClient : Nom, Prenom, Livrable, Ville, Adresse, Telephone, Email, Mot De Passe, Date inscription, NBCommande.\\
 
 NF1:\\
@@ -52,7 +87,7 @@ NF3 : \\
 Il n'y a pas de dépendances au sein de cette table autre que vers la clé primaire.\\ OK. \\
 BCNF : OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Ville}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Ville}{Ville}}}
 
 CodePostal : Ville, Livrable.\\
 
@@ -61,7 +96,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Commande}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Commande}{Commande}}}
 
 IDCommande : idCLient, Date, IDRemise, Valide, PRIX\_HT, PRIX\_TTC, Frais de port\\
 Prix\_HT : PRIX\_TTC\\
@@ -75,7 +110,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Remise}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Remise}{Remise}}}
 
 IDRemise : Type\_remise, Remise, Condition\_nb\_commande, Condition\_date\\
 
@@ -89,7 +124,7 @@ NF3: OK.\\
 BCNF: OK.\\
 
 
-\textcolor{colortitre3}{\subsubsection*{Produit\_par\_commandes}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{ppc}{Produit\_par\_commandes}}}
 
 IDCommande, IDProduit, IDCategorie : Quantite\\
 
@@ -98,7 +133,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Produit}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Produit}{Produit}}}
 
 Chaque produit est représenté par la clé primaire IDProduit, IDCategorie car pour chaque catégorie l'idproduit reprend à 1. exemple : carotte a l'id Catégorie associé à "légume" et un id Produit unique pour cette catégorie.
 
@@ -110,7 +145,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Categorie}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Categorie}{Categorie}}}
 
 La catégorie permet de spécifier s'il s'agit d'un fruit, légume, d'une viande, etc...
 
@@ -121,7 +156,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Stock}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Stock}{Stock}}}
 
 IDLivraison, IDProduit, IDCategorie : Quantite, date de péremption
 
@@ -130,11 +165,11 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Production}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Production}{Production}}}
 
 Cette table n'ayant pas d'attribut non primaire, elle est irréductible sous tout rapport. Elle est NF1 étant donné que les attributs de la clé primaire ne contiennent aucune redondance.
 
-\textcolor{colortitre3}{\subsubsection*{Entreprise}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Entreprise}{Entreprise}}}
 
 IDEntreprise : Nom entreprise, Rue, Ville, code postal, nom contact, contact
 
@@ -143,7 +178,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Produit par livraison}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{ppl}{Produit par livraison}}}
 
 IDLivraison : IDProduit, IDCategorie, Quantite, Prix unitaire HT à l'achat
 
@@ -152,7 +187,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Livraison}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Livraison}{Livraison}}}
 
 IDLivraison : date livraison, IDEntreprise, Frais de port, Prix HT total
 
@@ -161,7 +196,7 @@ NF2: OK.\\
 NF3: OK.\\
 BCNF: OK.\\
 
-\textcolor{colortitre3}{\subsubsection*{Admin}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Admin}{Admin}}}
 
 IDAdmin : mot de passe
 
