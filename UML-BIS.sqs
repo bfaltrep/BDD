@@ -76,7 +76,7 @@
         </location>
         <size>
             <width>253.00</width>
-            <height>120.00</height>
+            <height>160.00</height>
         </size>
         <zorder>2</zorder>
         <SQLField>
@@ -122,6 +122,16 @@
             <referenceDependentField><![CDATA[212F5C8B-6A61-43F1-A370-A6D798CB97A4]]></referenceDependentField>
             <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[A7B3CE23-C6DA-4DAA-89B2-89A65DCC11F6]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Nom Contact]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[6F08C459-E6A8-4F48-B795-887E15061177]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Contact]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[9E4BBFE6-EA69-40A9-A109-A4B2C2E2A9FB]]></uid>
         </SQLField>
         <labelWindowIndex><![CDATA[8]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
@@ -241,6 +251,7 @@
         <SQLField>
             <name><![CDATA[Frais_de_port]]></name>
             <type><![CDATA[INTEGER]]></type>
+            <notNull><![CDATA[1]]></notNull>
             <uid><![CDATA[3164036D-ED97-43B5-B48D-A34F96F4DA1F]]></uid>
         </SQLField>
         <SQLField>
@@ -425,6 +436,35 @@
         <labelWindowIndex><![CDATA[6]]></labelWindowIndex>
         <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
         <uid><![CDATA[604D5F55-18E5-498E-A491-A0EA3ABC0909]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Admin]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>288.00</x>
+            <y>797.00</y>
+        </location>
+        <size>
+            <width>240.00</width>
+            <height>60.00</height>
+        </size>
+        <zorder>12</zorder>
+        <SQLField>
+            <name><![CDATA[IDAdmin]]></name>
+            <type><![CDATA[VARCHAR(255)]]></type>
+            <primaryKey>1</primaryKey>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[55790FD5-9813-4FBD-8BC0-0A6970E99A05]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Mot de Passe]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[3370CBD9-BC26-4265-976E-3B285341E179]]></uid>
+            <unique><![CDATA[0]]></unique>
+        </SQLField>
+        <uid><![CDATA[83B48C17-4E17-4AA4-B2E8-5E563C870F11]]></uid>
     </SQLTable>
     <SQLTable>
         <name><![CDATA[Stock]]></name>
@@ -877,7 +917,7 @@ c28tYTSGhoY=
         <windowHeight><![CDATA[705.000000]]></windowHeight>
         <windowLocationX><![CDATA[0.000000]]></windowLocationX>
         <windowLocationY><![CDATA[0.000000]]></windowLocationY>
-        <windowScrollOrigin><![CDATA[{2, 0}]]></windowScrollOrigin>
+        <windowScrollOrigin><![CDATA[{11, 12}]]></windowScrollOrigin>
         <windowWidth><![CDATA[1366.000000]]></windowWidth>
     </SQLDocumentInfo>
     <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>
