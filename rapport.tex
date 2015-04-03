@@ -1,0 +1,179 @@
+\documentclass[a4paper, 12pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc} % permettent d'utiliser tous les caractères du clavier.
+\usepackage{inputenc} % permettent d'utiliser tous les caractères du clavier.
+\usepackage[top=2.0cm, bottom=2.0cm, left=2.5cm, right=2.5cm]{geometry} %marges des pages
+\usepackage{color}
+\usepackage{fancyhdr} %apparence globale
+\usepackage {hyperref} %table des matières avec liens ds le dossier.
+\usepackage{graphicx} %image
+\usepackage{setspace}
+% Profondeur de \subsubsection = 3
+\setcounter{tocdepth}{3}     % Dans la table des matieres
+\setcounter{secnumdepth}{3} % Avec un numero.
+
+\definecolor {colortitre1}{rgb}{0.7,0.1,0.1}
+\definecolor {colortitre2}{rgb}{0.7,0.5,0.1}
+\definecolor {colortitre3}{rgb}{0.6,0.7,0.1}
+\pagestyle{plain}
+
+\title{Base de données}
+\author{Nous}
+\date{année 2014/2015}
+
+
+
+
+\begin{document}
+	\begin{spacing}{1.2}
+\maketitle%sert a afficher le title dans le document, sinon serait des méta données.
+%\tableofcontents
+\newpage
+
+\textcolor{colortitre1}{\section*{Objectif du projet}} \addcontentsline{toc}{section}{Présentation}
+
+
+IDENTIFIANTS SONT MAILS.
+
+\textcolor{colortitre2}{\subsection*{Dépendances fonctionnelle}} \addcontentsline{toc}{subsection}{Dépendances fonctionnelle}
+
+\textcolor{colortitre3}{\subsubsection*{Client}}
+	
+IDClient : Nom, Prenom, Livrable, Ville, Adresse, Telephone, Email, Mot De Passe, Date inscription, NBCommande.\\
+
+NF1:\\
+Des informations paraissent redondantes entre Adresse et Ville. Nous proposons donc une amélioration qui consiste à conserver à la place du nom de la ville, le code postal de la ville. Le champs Adresse ne contenant alors que le détail de l'adresse et non des informations sur la ville.\\
+Ville devient donc : CodePostal.
+\\OK.\\
+NF2 : \\
+Nous avons ici une clé primaire a un seul champs et tout les attributs dépendent de cette clé. \\OK.\\
+NF3 : \\
+Il n'y a pas de dépendances au sein de cette table autre que vers la clé primaire.\\ OK. \\
+BCNF : OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Ville}}
+
+CodePostal : Ville, Livrable.\\
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Commande}}
+
+IDCommande : idCLient, Date, IDRemise, Valide, PRIX\_HT, PRIX\_TTC, Frais de port\\
+Prix\_HT : PRIX\_TTC\\
+
+NF1 : \\
+Il y a une forme de redondance entre les prix étant donné que notre gamme de produit implique un taux de TVA constant. Nous choisissons donc de placer notre TVA en variable globale sur le site web et de retirer l'attribut PRIX\_TTC de notre table.\\
+
+OK.\\
+
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Remise}}
+
+IDRemise : Type\_remise, Remise, Condition\_nb\_commande, Condition\_date\\
+
+TYPE REMISE SERA UN ENUM WECH MAGEULE
+
+
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+
+\textcolor{colortitre3}{\subsubsection*{Produit\_par\_commandes}}
+
+IDCommande, IDProduit, IDCategorie : Quantite\\
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Produit}}
+
+Chaque produit est représenté par la clé primaire IDProduit, IDCategorie car pour chaque catégorie l'idproduit reprend à 1. exemple : carotte a l'id Catégorie associé à "légume" et un id Produit unique pour cette catégorie.
+
+IDProduit, IDCategorie : Nom produit, Quantite, Date ajout, prix unitaire HT, date debut disponibilite, date fin disponibilite \\
+
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Categorie}}
+
+La catégorie permet de spécifier s'il s'agit d'un fruit, légume, d'une viande, etc...
+
+IDCategorie : Nom categorie
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Stock}}
+
+IDLivraison, IDProduit, IDCategorie : Quantite, date de péremption
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Production}}
+
+Cette table n'ayant pas d'attribut non primaire, elle est irréductible sous tout rapport. Elle est NF1 étant donné que les attributs de la clé primaire ne contiennent aucune redondance.
+
+\textcolor{colortitre3}{\subsubsection*{Entreprise}}
+
+IDEntreprise : Nom entreprise, Rue, Ville, code postal, nom contact, contact
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Produit par livraison}}
+
+IDLivraison : IDProduit, IDCategorie, Quantite, Prix unitaire HT à l'achat
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Livraison}}
+
+IDLivraison : date livraison, IDEntreprise, Frais de port, Prix HT total
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\textcolor{colortitre3}{\subsubsection*{Admin}}
+
+IDAdmin : mot de passe
+
+NF1: OK.\\
+NF2: OK.\\
+NF3: OK.\\
+BCNF: OK.\\
+
+\newpage
+\textcolor{colortitre1}{\section*{Conclusion}} \addcontentsline{toc}{section}{Conclusion}
+
+
+
+\end{spacing}
+\end{document}
