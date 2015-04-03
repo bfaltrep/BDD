@@ -1,0 +1,895 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<SQLContainer>
+    <SQLTable>
+        <name><![CDATA[Ville]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>669.00</x>
+            <y>58.00</y>
+        </location>
+        <size>
+            <width>213.00</width>
+            <height>80.00</height>
+        </size>
+        <zorder>11</zorder>
+        <SQLField>
+            <name><![CDATA[Code Postal]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[D8300A05-CE6B-4520-ACED-826E6B0877A2]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Ville]]></name>
+            <type><![CDATA[CHAR]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[5297ABE7-5CA6-4EBD-98B0-E031C7588E06]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Livrable]]></name>
+            <type><![CDATA[CHAR]]></type>
+            <uid><![CDATA[E317201C-1CED-419A-8411-51C62100B2B4]]></uid>
+        </SQLField>
+        <uid><![CDATA[02EFEB3B-CF67-463D-AB52-AA444CE11992]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Categorie]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>678.00</x>
+            <y>748.00</y>
+        </location>
+        <size>
+            <width>249.00</width>
+            <height>60.00</height>
+        </size>
+        <zorder>0</zorder>
+        <SQLField>
+            <name><![CDATA[IDCategorie]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[C7229A04-35CF-4010-BC55-59728977CDB0]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Nom catégorie]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[A2E56845-5899-46A2-B3CA-539160624A65]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[10]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[0B5543B4-F6A8-4E88-8732-21943A45DF1B]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Entreprise]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>958.00</x>
+            <y>42.00</y>
+        </location>
+        <size>
+            <width>253.00</width>
+            <height>120.00</height>
+        </size>
+        <zorder>2</zorder>
+        <SQLField>
+            <name><![CDATA[IDEntreprise]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[311CCB32-5491-4E80-9835-E0DD75CA4617]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Nom Entreprise]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[C7DDC329-3EDF-47F6-8F46-2E44FA8B0EA6]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Rue]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[42CE5609-942C-4093-8D25-DF89D1ED8EF0]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Ville]]></name>
+            <type><![CDATA[CHAR]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[212F5C8B-6A61-43F1-A370-A6D798CB97A4]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Code Postal]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <referencesField>Code Postal</referencesField>
+            <referencesTable>Ville</referencesTable>
+            <referencesField><![CDATA[Code Postal]]></referencesField>
+            <referencesTable><![CDATA[Ville]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[D8300A05-CE6B-4520-ACED-826E6B0877A2]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[02EFEB3B-CF67-463D-AB52-AA444CE11992]]></referencesTableUID>
+            <referenceDependentField><![CDATA[212F5C8B-6A61-43F1-A370-A6D798CB97A4]]></referenceDependentField>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[A7B3CE23-C6DA-4DAA-89B2-89A65DCC11F6]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[8]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[13DD46A5-9925-465D-A5B3-E6855ABA0516]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Produit]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>716.00</x>
+            <y>436.00</y>
+        </location>
+        <size>
+            <width>233.00</width>
+            <height>160.00</height>
+        </size>
+        <zorder>5</zorder>
+        <SQLField>
+            <name><![CDATA[IDProduit]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[5D2DBDDF-FA0B-41C6-A2C4-4D48FA64358B]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDCategorie]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDCategorie</referencesField>
+            <referencesTable>Categorie</referencesTable>
+            <referencesField><![CDATA[IDCategorie]]></referencesField>
+            <referencesTable><![CDATA[Categorie]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[C7229A04-35CF-4010-BC55-59728977CDB0]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[0B5543B4-F6A8-4E88-8732-21943A45DF1B]]></referencesTableUID>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <uid><![CDATA[436D5A49-1BF1-488C-99E7-2CD1909C6EBB]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Nom produit]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[C4C0E983-3412-4B02-A5E3-99B40ACE32DF]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date Ajout]]></name>
+            <type><![CDATA[DATE]]></type>
+            <uid><![CDATA[3876530D-3057-4CA4-BEB7-C300BEC22273]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Prix unitaire HT VENTE]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <uid><![CDATA[337D8106-1693-4586-B352-F06A93367FEE]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date_debut_disponibilite]]></name>
+            <type><![CDATA[DATE]]></type>
+            <uid><![CDATA[B24DCFBE-BE30-4E8C-8DD1-6B83E9002331]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date-fin_disponibilite]]></name>
+            <type><![CDATA[DATE]]></type>
+            <uid><![CDATA[25B42910-68E2-42D7-B239-99E827B1C64A]]></uid>
+        </SQLField>
+        <forcedUnique><![CDATA[1]]></forcedUnique>
+        <labelWindowIndex><![CDATA[5]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[4323274E-5751-4614-B992-163BC1F49E71]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Livraison]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>1351.00</x>
+            <y>211.00</y>
+        </location>
+        <size>
+            <width>245.00</width>
+            <height>120.00</height>
+        </size>
+        <zorder>3</zorder>
+        <SQLField>
+            <name><![CDATA[IDLivraison]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[A42D5194-0E5E-41FF-9A5F-B87AEAF7A459]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date livraison]]></name>
+            <type><![CDATA[DATE]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[57EA77DD-3EB0-43F4-B666-BB92E2F600AD]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDEntreprise]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <referencesField>IDEntreprise</referencesField>
+            <referencesTable>Entreprise</referencesTable>
+            <referencesField><![CDATA[IDEntreprise]]></referencesField>
+            <referencesTable><![CDATA[Entreprise]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[311CCB32-5491-4E80-9835-E0DD75CA4617]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[13DD46A5-9925-465D-A5B3-E6855ABA0516]]></referencesTableUID>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[87613043-FCDC-4C51-8DB5-D22F572FF28B]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Frais_de_port]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[3164036D-ED97-43B5-B48D-A34F96F4DA1F]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Prix TOTAL HT]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[2D301BB3-C8E7-4460-92C3-13395460D3DA]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[7]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[43C6108A-A3AA-492C-9512-6F85DC7B0D3D]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Remise]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>0.00</x>
+            <y>537.00</y>
+        </location>
+        <size>
+            <width>244.00</width>
+            <height>120.00</height>
+        </size>
+        <zorder>6</zorder>
+        <SQLField>
+            <name><![CDATA[IDRemise]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[2AE7372E-DC68-4E8D-894F-8883922E335A]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Type_remise]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[F3E15FD7-D0CC-4D2D-955D-01801F792079]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Remise]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[0C730A3B-16E2-4F52-B5A2-0474B5307F3A]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Condition_nb_commande]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <notNull><![CDATA[0]]></notNull>
+            <uid><![CDATA[E3C547DE-8BE4-4754-AB9B-40362AD989D2]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Condition_date]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[14E7076D-C2F0-4BBA-912C-C7735FB1351C]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[4]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[4EB593AB-7683-49B0-872D-2AE6844A24C4]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Commande]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>316.00</x>
+            <y>233.00</y>
+        </location>
+        <size>
+            <width>260.00</width>
+            <height>180.00</height>
+        </size>
+        <zorder>8</zorder>
+        <SQLField>
+            <name><![CDATA[IDCommande]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[C2ECE117-138E-47E0-9C39-B2B99C8E61E0]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[idClient]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <referencesField>IDClient</referencesField>
+            <referencesTable>Client</referencesTable>
+            <referencesField><![CDATA[IDClient]]></referencesField>
+            <referencesTable><![CDATA[Client]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[AC947C30-E6C4-44E4-811D-BA87D9BE60DE]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[958D1A36-5DE8-48DB-BFC9-7EFFA90918A2]]></referencesTableUID>
+            <uid><![CDATA[26CE6864-0EB9-4B27-A02F-2299B92E9608]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date]]></name>
+            <type><![CDATA[DATE]]></type>
+            <uid><![CDATA[A1B080B6-C488-4687-96C5-D24E194222CC]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDRemise]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <referencesField>IDRemise</referencesField>
+            <referencesTable>Remise</referencesTable>
+            <referencesField><![CDATA[IDRemise]]></referencesField>
+            <referencesTable><![CDATA[Remise]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[2AE7372E-DC68-4E8D-894F-8883922E335A]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[4EB593AB-7683-49B0-872D-2AE6844A24C4]]></referencesTableUID>
+            <uid><![CDATA[EAD28879-E576-4243-8D2C-BD821A7F7C51]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Valide]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[3CD4E6DF-E0F7-4DE0-BEDE-7D3D6847BDEC]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[PRIX_HT]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[31308290-FCDF-4F57-9FBB-060D7C46C8C6]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[PRIX_TTC]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[EC271840-D569-42D5-8757-0C7724917913]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Frais de port]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[EA017363-41D0-4BF6-951F-55CC242BF003]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[2]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[568C4BF5-965A-4B1E-A633-6CD395DB40D1]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Production]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>960.00</x>
+            <y>245.00</y>
+        </location>
+        <size>
+            <width>236.00</width>
+            <height>80.00</height>
+        </size>
+        <zorder>4</zorder>
+        <SQLField>
+            <name><![CDATA[IDEntreprise]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDEntreprise</referencesField>
+            <referencesTable>Entreprise</referencesTable>
+            <referencesField><![CDATA[IDEntreprise]]></referencesField>
+            <referencesTable><![CDATA[Entreprise]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[311CCB32-5491-4E80-9835-E0DD75CA4617]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[13DD46A5-9925-465D-A5B3-E6855ABA0516]]></referencesTableUID>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[89AF9799-B268-4EFE-8615-A2B137C3EB44]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDProduit]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDProduit</referencesField>
+            <referencesTable>Produit</referencesTable>
+            <referencesField><![CDATA[IDProduit]]></referencesField>
+            <referencesTable><![CDATA[Produit]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[5D2DBDDF-FA0B-41C6-A2C4-4D48FA64358B]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[4323274E-5751-4614-B992-163BC1F49E71]]></referencesTableUID>
+            <referenceDependentField><![CDATA[DE3CB3C8-6CD6-4E9B-869A-AA2BE219695C]]></referenceDependentField>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[560DED0E-66C6-4679-A537-6495704A6F08]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDCategorie]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[DE3CB3C8-6CD6-4E9B-869A-AA2BE219695C]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[6]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[604D5F55-18E5-498E-A491-A0EA3ABC0909]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Stock]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>1172.00</x>
+            <y>823.00</y>
+        </location>
+        <size>
+            <width>264.00</width>
+            <height>120.00</height>
+        </size>
+        <zorder>7</zorder>
+        <SQLField>
+            <name><![CDATA[IDLivraison]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDLivraison</referencesField>
+            <referencesTable>Livraison</referencesTable>
+            <referencesField><![CDATA[IDLivraison]]></referencesField>
+            <referencesTable><![CDATA[Livraison]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[A42D5194-0E5E-41FF-9A5F-B87AEAF7A459]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[43C6108A-A3AA-492C-9512-6F85DC7B0D3D]]></referencesTableUID>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[3BE3C969-FACD-4A06-BB64-061FACD18DF6]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDPoduit]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDProduit</referencesField>
+            <referencesTable>Produit</referencesTable>
+            <referencesField><![CDATA[IDProduit]]></referencesField>
+            <referencesTable><![CDATA[Produit]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[5D2DBDDF-FA0B-41C6-A2C4-4D48FA64358B]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[4323274E-5751-4614-B992-163BC1F49E71]]></referencesTableUID>
+            <referenceDependentField><![CDATA[DDAC9625-0DE3-4986-B56F-6479861047EF]]></referenceDependentField>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[4A5B0A8E-3896-4EAF-B14B-D7A37A72ED70]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDCategorie]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[DDAC9625-0DE3-4986-B56F-6479861047EF]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Quantite]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[9C3B9B0F-7464-413F-A0A9-BE485D750007]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date de peremption]]></name>
+            <type><![CDATA[DATE]]></type>
+            <uid><![CDATA[268C88DD-B1D4-43ED-96DF-27AB0FBD3547]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[3]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[874D5D36-D3C8-4223-B1F1-B557BF80B113]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Client]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>15.00</x>
+            <y>49.00</y>
+        </location>
+        <size>
+            <width>223.00</width>
+            <height>240.00</height>
+        </size>
+        <zorder>1</zorder>
+        <SQLField>
+            <name><![CDATA[IDClient]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <autoIncrement><![CDATA[1]]></autoIncrement>
+            <forcedUnique><![CDATA[1]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[AC947C30-E6C4-44E4-811D-BA87D9BE60DE]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Nom]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[80807490-A54F-468D-814C-094FF6738664]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Prenom]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[AC7185B2-F482-4FFA-99FA-0DA5EE5D385F]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Rue]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[3062CA48-6017-4713-ACDB-A5AF868BA942]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Code Postal]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <forcedUnique><![CDATA[0]]></forcedUnique>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[E71E6E7C-4009-440C-9532-27C23936CB3D]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Ville]]></name>
+            <type><![CDATA[CHAR]]></type>
+            <referencesField>Ville</referencesField>
+            <referencesTable>Ville</referencesTable>
+            <referencesField><![CDATA[Ville]]></referencesField>
+            <referencesTable><![CDATA[Ville]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[5297ABE7-5CA6-4EBD-98B0-E031C7588E06]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[02EFEB3B-CF67-463D-AB52-AA444CE11992]]></referencesTableUID>
+            <referenceDependentField><![CDATA[E71E6E7C-4009-440C-9532-27C23936CB3D]]></referenceDependentField>
+            <uid><![CDATA[1FA1644D-C3CE-44F6-A1F2-9863C58F5254]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Telephone]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <uid><![CDATA[0BA3F385-B295-49A6-804B-BD2C681EEC37]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Email]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[AC3F9373-716D-4002-B0C0-46FAABD82BCF]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Mot de passe]]></name>
+            <type><![CDATA[VARCHAR2]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[6C0A90FF-12DD-4917-A5DE-03D1BFD23244]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Date Inscription]]></name>
+            <type><![CDATA[DATE]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[22C5CBE0-11DA-426F-A84B-79F715ECC788]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[NBCommande]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[32BEA53C-3AFF-41D7-BFA7-9DD09F088551]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[9]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[958D1A36-5DE8-48DB-BFC9-7EFFA90918A2]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Produit_par_commandes]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>384.00</x>
+            <y>585.00</y>
+        </location>
+        <size>
+            <width>222.00</width>
+            <height>100.00</height>
+        </size>
+        <zorder>9</zorder>
+        <SQLField>
+            <name><![CDATA[IDCommande]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDCommande</referencesField>
+            <referencesTable>Commande</referencesTable>
+            <referencesField><![CDATA[IDCommande]]></referencesField>
+            <referencesTable><![CDATA[Commande]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[C2ECE117-138E-47E0-9C39-B2B99C8E61E0]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[568C4BF5-965A-4B1E-A633-6CD395DB40D1]]></referencesTableUID>
+            <autoIncrement><![CDATA[0]]></autoIncrement>
+            <notNull><![CDATA[0]]></notNull>
+            <uid><![CDATA[623EF63B-33D6-47B6-B3F8-727D3E98D09F]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDProduit]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDProduit</referencesField>
+            <referencesTable>Produit</referencesTable>
+            <referencesField><![CDATA[IDProduit]]></referencesField>
+            <referencesTable><![CDATA[Produit]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[5D2DBDDF-FA0B-41C6-A2C4-4D48FA64358B]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[4323274E-5751-4614-B992-163BC1F49E71]]></referencesTableUID>
+            <referenceDependentField><![CDATA[D7336120-E9A0-4D05-AA8D-5E9CE1C1CDD2]]></referenceDependentField>
+            <uid><![CDATA[DB50130D-FBB3-4F90-B4C8-4FB36804F9ED]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDCategorie]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <uid><![CDATA[D7336120-E9A0-4D05-AA8D-5E9CE1C1CDD2]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Quantite]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[F1A47FB1-75F2-4651-A959-103B26708E1F]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[1]]></labelWindowIndex>
+        <ui.treeExpanded><![CDATA[1]]></ui.treeExpanded>
+        <uid><![CDATA[B486142F-F276-488B-815A-890D191DE9ED]]></uid>
+    </SQLTable>
+    <SQLTable>
+        <name><![CDATA[Produit_par_livraison]]></name>
+        <schema><![CDATA[]]></schema>
+        <location>
+            <x>1268.00</x>
+            <y>472.00</y>
+        </location>
+        <size>
+            <width>245.00</width>
+            <height>140.00</height>
+        </size>
+        <zorder>10</zorder>
+        <SQLField>
+            <name><![CDATA[IDLivraison]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <primaryKey>1</primaryKey>
+            <referencesField>IDLivraison</referencesField>
+            <referencesTable>Livraison</referencesTable>
+            <referencesField><![CDATA[IDLivraison]]></referencesField>
+            <referencesTable><![CDATA[Livraison]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[A42D5194-0E5E-41FF-9A5F-B87AEAF7A459]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[43C6108A-A3AA-492C-9512-6F85DC7B0D3D]]></referencesTableUID>
+            <autoIncrement><![CDATA[0]]></autoIncrement>
+            <notNull><![CDATA[1]]></notNull>
+            <uid><![CDATA[66CBD7DE-A653-4E69-9D30-0EA0767763C6]]></uid>
+            <unique><![CDATA[1]]></unique>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDProduit]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <referencesField>IDProduit</referencesField>
+            <referencesTable>Produit</referencesTable>
+            <referencesField><![CDATA[IDProduit]]></referencesField>
+            <referencesTable><![CDATA[Produit]]></referencesTable>
+            <sourceCardinality>0</sourceCardinality>
+            <destinationCardinality>0</destinationCardinality>
+            <referencesFieldUID><![CDATA[5D2DBDDF-FA0B-41C6-A2C4-4D48FA64358B]]></referencesFieldUID>
+            <referencesTableUID><![CDATA[4323274E-5751-4614-B992-163BC1F49E71]]></referencesTableUID>
+            <referenceDependentField><![CDATA[2A8FE187-2A64-4755-B7A2-DC91B69B86C1]]></referenceDependentField>
+            <uid><![CDATA[93A2E979-5DF2-4483-B634-957E1BCAAC83]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[IDCategorie]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[2A8FE187-2A64-4755-B7A2-DC91B69B86C1]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Quantite]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[22F40AE4-8E14-49D7-A93D-E9A43F6F4198]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Prix unitaire HT ACHAT]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[87E5F619-E620-4B32-8535-94045E4228FC]]></uid>
+        </SQLField>
+        <SQLField>
+            <name><![CDATA[Prix unitaire TTC ACHAT]]></name>
+            <type><![CDATA[INTEGER]]></type>
+            <uid><![CDATA[E6E70A8B-CF2F-4883-8DB5-872993A1BFBB]]></uid>
+        </SQLField>
+        <labelWindowIndex><![CDATA[0]]></labelWindowIndex>
+        <uid><![CDATA[B9A4B47B-89E2-4629-A427-D5F17135634A]]></uid>
+    </SQLTable>
+    <SQLDocumentInfo>
+        <encodedPrintInfo><![CDATA[BAtzdHJlYW10eXBlZIHoA4QBQISEhAtOU1ByaW50SW5mbwGEhAhOU09iamVjdACF
+koSEhBNOU011dGFibGVEaWN0aW9uYXJ5AISEDE5TRGljdGlvbmFyeQCUhAFpDZKE
+hIQITlNTdHJpbmcBlIQBKw5OU1BNUGFnZUZvcm1hdIaShISEDU5TTXV0YWJsZURh
+dGEAhIQGTlNEYXRhAJSXgZUZhAdbNjU0OWNdPD94bWwgdmVyc2lvbj0iMS4wIiBl
+bmNvZGluZz0iVVRGLTgiPz4KPCFET0NUWVBFIHBsaXN0IFBVQkxJQyAiLS8vQXBw
+bGUvL0RURCBQTElTVCAxLjAvL0VOIiAiaHR0cDovL3d3dy5hcHBsZS5jb20vRFRE
+cy9Qcm9wZXJ0eUxpc3QtMS4wLmR0ZCI+CjxwbGlzdCB2ZXJzaW9uPSIxLjAiPgo8
+ZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1Ib3Jpem9u
+dGFsUmVzPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNr
+ZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwv
+c3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8
+L2tleT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtleT5jb20uYXBwbGUucHJp
+bnQuUGFnZUZvcm1hdC5QTUhvcml6b250YWxSZXM8L2tleT4KCQkJCTxyZWFsPjcy
+PC9yZWFsPgoJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxh
+Zzwva2V5PgoJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJPC9kaWN0PgoJCTwv
+YXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0
+LlBNT3JpZW50YXRpb248L2tleT4KCTxkaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJPHN0cmluZz5jb20uYXBwbGUuam9i
+dGlja2V0PC9zdHJpbmc+CgkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0
+ZW1BcnJheTwva2V5PgoJCTxhcnJheT4KCQkJPGRpY3Q+CgkJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC5QYWdlRm9ybWF0LlBNT3JpZW50YXRpb248L2tleT4KCQkJCTxp
+bnRlZ2VyPjE8L2ludGVnZXI+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNr
+ZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJCQk8
+L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50
+LlBhZ2VGb3JtYXQuUE1TY2FsaW5nPC9rZXk+Cgk8ZGljdD4KCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFw
+cGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRp
+Y2tldC5pdGVtQXJyYXk8L2tleT4KCQk8YXJyYXk+CgkJCTxkaWN0PgoJCQkJPGtl
+eT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTVNjYWxpbmc8L2tleT4KCQkJ
+CTxyZWFsPjE8L3JlYWw+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQu
+c3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJCQk8L2Rp
+Y3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnByaW50LlBh
+Z2VGb3JtYXQuUE1WZXJ0aWNhbFJlczwva2V5PgoJPGRpY3Q+CgkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQk8c3RyaW5nPmNvbS5h
+cHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50
+aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJPGFycmF5PgoJCQk8ZGljdD4KCQkJCTxr
+ZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3JtYXQuUE1WZXJ0aWNhbFJlczwva2V5
+PgoJCQkJPHJlYWw+NzI8L3JlYWw+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50
+aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJ
+CQk8L2RpY3Q+CgkJPC9hcnJheT4KCTwvZGljdD4KCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LlBhZ2VGb3JtYXQuUE1WZXJ0aWNhbFNjYWxpbmc8L2tleT4KCTxkaWN0PgoJ
+CTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJPHN0
+cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJPGtleT5jb20uYXBw
+bGUucHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCTxhcnJheT4KCQkJPGRp
+Y3Q+CgkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNVmVydGlj
+YWxTY2FsaW5nPC9rZXk+CgkJCQk8cmVhbD4xPC9yZWFsPgoJCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwva2V5PgoJCQkJPGludGVnZXI+
+MDwvaW50ZWdlcj4KCQkJPC9kaWN0PgoJCTwvYXJyYXk+Cgk8L2RpY3Q+Cgk8a2V5
+PmNvbS5hcHBsZS5wcmludC5zdWJUaWNrZXQucGFwZXJfaW5mb190aWNrZXQ8L2tl
+eT4KCTxkaWN0PgoJCTxrZXk+UE1QUERQYXBlckNvZGVOYW1lPC9rZXk+CgkJPGRp
+Y3Q+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+
+CgkJCTxzdHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5
+PmNvbS5hcHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJCTxhcnJh
+eT4KCQkJCTxkaWN0PgoJCQkJCTxrZXk+UE1QUERQYXBlckNvZGVOYW1lPC9rZXk+
+CgkJCQkJPHN0cmluZz5BNDwvc3RyaW5nPgoJCQkJCTxrZXk+Y29tLmFwcGxlLnBy
+aW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4wPC9pbnRl
+Z2VyPgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PlBN
+UFBEVHJhbnNsYXRpb25TdHJpbmdQYXBlck5hbWU8L2tleT4KCQk8ZGljdD4KCQkJ
+PGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0
+cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJ
+PGRpY3Q+CgkJCQkJPGtleT5QTVBQRFRyYW5zbGF0aW9uU3RyaW5nUGFwZXJOYW1l
+PC9rZXk+CgkJCQkJPHN0cmluZz5BNDwvc3RyaW5nPgoJCQkJCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4w
+PC9pbnRlZ2VyPgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8
+a2V5PlBNVGlvZ2FQYXBlck5hbWU8L2tleT4KCQk8ZGljdD4KCQkJPGtleT5jb20u
+YXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0cmluZz5jb20u
+YXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50
+LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJ
+CQkJPGtleT5QTVRpb2dhUGFwZXJOYW1lPC9rZXk+CgkJCQkJPHN0cmluZz5pc28t
+YTQ8L3N0cmluZz4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3Rh
+dGVGbGFnPC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGlj
+dD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQu
+UGFnZUZvcm1hdC5QTUFkanVzdGVkUGFnZVJlY3Q8L2tleT4KCQk8ZGljdD4KCQkJ
+PGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNyZWF0b3I8L2tleT4KCQkJPHN0
+cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJpbmc+CgkJCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tleT4KCQkJPGFycmF5PgoJCQkJ
+PGRpY3Q+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFnZUZvcm1hdC5QTUFk
+anVzdGVkUGFnZVJlY3Q8L2tleT4KCQkJCQk8YXJyYXk+CgkJCQkJCTxpbnRlZ2Vy
+PjA8L2ludGVnZXI+CgkJCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCQkJCTxy
+ZWFsPjc4MzwvcmVhbD4KCQkJCQkJPHJlYWw+NTU5PC9yZWFsPgoJCQkJCTwvYXJy
+YXk+CgkJCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LnN0YXRlRmxhZzwv
+a2V5PgoJCQkJCTxpbnRlZ2VyPjA8L2ludGVnZXI+CgkJCQk8L2RpY3Q+CgkJCTwv
+YXJyYXk+CgkJPC9kaWN0PgoJCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhZ2VGb3Jt
+YXQuUE1BZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNv
+bS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNv
+bS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJp
+bnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4K
+CQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYWdlRm9ybWF0LlBNQWRqdXN0ZWRQ
+YXBlclJlY3Q8L2tleT4KCQkJCQk8YXJyYXk+CgkJCQkJCTxyZWFsPi0xODwvcmVh
+bD4KCQkJCQkJPHJlYWw+LTE4PC9yZWFsPgoJCQkJCQk8cmVhbD44MjQ8L3JlYWw+
+CgkJCQkJCTxyZWFsPjU3NzwvcmVhbD4KCQkJCQk8L2FycmF5PgoJCQkJCTxrZXk+
+Y29tLmFwcGxlLnByaW50LnRpY2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50
+ZWdlcj4wPC9pbnRlZ2VyPgoJCQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGlj
+dD4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYXBlckluZm8uUE1QYXBlck5hbWU8
+L2tleT4KCQk8ZGljdD4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LmNy
+ZWF0b3I8L2tleT4KCQkJPHN0cmluZz5jb20uYXBwbGUuam9idGlja2V0PC9zdHJp
+bmc+CgkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5pdGVtQXJyYXk8L2tl
+eT4KCQkJPGFycmF5PgoJCQkJPGRpY3Q+CgkJCQkJPGtleT5jb20uYXBwbGUucHJp
+bnQuUGFwZXJJbmZvLlBNUGFwZXJOYW1lPC9rZXk+CgkJCQkJPHN0cmluZz5pc28t
+YTQ8L3N0cmluZz4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3Rh
+dGVGbGFnPC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGlj
+dD4KCQkJPC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQu
+UGFwZXJJbmZvLlBNVW5hZGp1c3RlZFBhZ2VSZWN0PC9rZXk+CgkJPGRpY3Q+CgkJ
+CTxrZXk+Y29tLmFwcGxlLnByaW50LnRpY2tldC5jcmVhdG9yPC9rZXk+CgkJCTxz
+dHJpbmc+Y29tLmFwcGxlLmpvYnRpY2tldDwvc3RyaW5nPgoJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC50aWNrZXQuaXRlbUFycmF5PC9rZXk+CgkJCTxhcnJheT4KCQkJ
+CTxkaWN0PgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LlBhcGVySW5mby5QTVVu
+YWRqdXN0ZWRQYWdlUmVjdDwva2V5PgoJCQkJCTxhcnJheT4KCQkJCQkJPGludGVn
+ZXI+MDwvaW50ZWdlcj4KCQkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCQkJ
+PHJlYWw+NzgzPC9yZWFsPgoJCQkJCQk8cmVhbD41NTk8L3JlYWw+CgkJCQkJPC9h
+cnJheT4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFn
+PC9rZXk+CgkJCQkJPGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJ
+PC9hcnJheT4KCQk8L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFwZXJJ
+bmZvLlBNVW5hZGp1c3RlZFBhcGVyUmVjdDwva2V5PgoJCTxkaWN0PgoJCQk8a2V5
+PmNvbS5hcHBsZS5wcmludC50aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5n
+PmNvbS5hcHBsZS5qb2J0aWNrZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUu
+cHJpbnQudGlja2V0Lml0ZW1BcnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGlj
+dD4KCQkJCQk8a2V5PmNvbS5hcHBsZS5wcmludC5QYXBlckluZm8uUE1VbmFkanVz
+dGVkUGFwZXJSZWN0PC9rZXk+CgkJCQkJPGFycmF5PgoJCQkJCQk8cmVhbD4tMTg8
+L3JlYWw+CgkJCQkJCTxyZWFsPi0xODwvcmVhbD4KCQkJCQkJPHJlYWw+ODI0PC9y
+ZWFsPgoJCQkJCQk8cmVhbD41Nzc8L3JlYWw+CgkJCQkJPC9hcnJheT4KCQkJCQk8
+a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQuc3RhdGVGbGFnPC9rZXk+CgkJCQkJ
+PGludGVnZXI+MDwvaW50ZWdlcj4KCQkJCTwvZGljdD4KCQkJPC9hcnJheT4KCQk8
+L2RpY3Q+CgkJPGtleT5jb20uYXBwbGUucHJpbnQuUGFwZXJJbmZvLnBwZC5QTVBh
+cGVyTmFtZTwva2V5PgoJCTxkaWN0PgoJCQk8a2V5PmNvbS5hcHBsZS5wcmludC50
+aWNrZXQuY3JlYXRvcjwva2V5PgoJCQk8c3RyaW5nPmNvbS5hcHBsZS5qb2J0aWNr
+ZXQ8L3N0cmluZz4KCQkJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0Lml0ZW1B
+cnJheTwva2V5PgoJCQk8YXJyYXk+CgkJCQk8ZGljdD4KCQkJCQk8a2V5PmNvbS5h
+cHBsZS5wcmludC5QYXBlckluZm8ucHBkLlBNUGFwZXJOYW1lPC9rZXk+CgkJCQkJ
+PHN0cmluZz5BNDwvc3RyaW5nPgoJCQkJCTxrZXk+Y29tLmFwcGxlLnByaW50LnRp
+Y2tldC5zdGF0ZUZsYWc8L2tleT4KCQkJCQk8aW50ZWdlcj4wPC9pbnRlZ2VyPgoJ
+CQkJPC9kaWN0PgoJCQk8L2FycmF5PgoJCTwvZGljdD4KCQk8a2V5PmNvbS5hcHBs
+ZS5wcmludC50aWNrZXQuQVBJVmVyc2lvbjwva2V5PgoJCTxzdHJpbmc+MDAuMjA8
+L3N0cmluZz4KCQk8a2V5PmNvbS5hcHBsZS5wcmludC50aWNrZXQudHlwZTwva2V5
+PgoJCTxzdHJpbmc+Y29tLmFwcGxlLnByaW50LlBhcGVySW5mb1RpY2tldDwvc3Ry
+aW5nPgoJPC9kaWN0PgoJPGtleT5jb20uYXBwbGUucHJpbnQudGlja2V0LkFQSVZl
+cnNpb248L2tleT4KCTxzdHJpbmc+MDAuMjA8L3N0cmluZz4KCTxrZXk+Y29tLmFw
+cGxlLnByaW50LnRpY2tldC50eXBlPC9rZXk+Cgk8c3RyaW5nPmNvbS5hcHBsZS5w
+cmludC5QYWdlRm9ybWF0VGlja2V0PC9zdHJpbmc+CjwvZGljdD4KPC9wbGlzdD4K
+hpKEmZkLTlNQYXBlclNpemWGkoSEhAdOU1ZhbHVlAJSEASqEhAt7Q0dTaXplPWRk
+fZ+BUwKBSgOGkoSZmRZOU0hvcml6b250YWxseUNlbnRlcmVkhpKEhIQITlNOdW1i
+ZXIAn56EhAFjoQGGkoSZmRROU1ZlcnRpY2FsbHlDZW50ZXJlZIaSopKEmZkMTlNM
+ZWZ0TWFyZ2luhpKEo56EhAFkohKGkoSZmQ1OU1JpZ2h0TWFyZ2luhpKEo56oohKG
+koSZmQtOU1RvcE1hcmdpboaShKOeqKIehpKEmZkNTlNPcmllbnRhdGlvboaShKOe
+hIQBcaMAhpKEmZkVTlNIb3Jpem9uYWxQYWdpbmF0aW9uhpKukoSZmRROU1ZlcnRp
+Y2FsUGFnaW5hdGlvboaSrpKEmZkOTlNCb3R0b21NYXJnaW6GkoSjnqiiNYaShJmZ
+D05TU2NhbGluZ0ZhY3RvcoaShKOeqKIBhpKEmZkLTlNQYXBlck5hbWWGkoSZmQZp
+c28tYTSGhoY=
+]]></encodedPrintInfo>
+        <autoSizeTablesOption><![CDATA[0]]></autoSizeTablesOption>
+        <documentScaleFactor><![CDATA[0.662]]></documentScaleFactor>
+        <dropTableOption><![CDATA[0]]></dropTableOption>
+        <exportDialect><![CDATA[mysql]]></exportDialect>
+        <fileversion><![CDATA[3.1]]></fileversion>
+        <generator><![CDATA[com.malcolmhardie.sqleditor]]></generator>
+        <generatorVersion><![CDATA[2.0]]></generatorVersion>
+        <hideFieldIcons><![CDATA[0]]></hideFieldIcons>
+        <hideFieldTypes><![CDATA[0]]></hideFieldTypes>
+        <pageBoundariesVisible><![CDATA[0]]></pageBoundariesVisible>
+        <PageGridVisible><![CDATA[0]]></PageGridVisible>
+        <sidebarIndex><![CDATA[0]]></sidebarIndex>
+        <snapToGrid><![CDATA[0]]></snapToGrid>
+        <SourceSidebarWidth><![CDATA[276.000000]]></SourceSidebarWidth>
+        <uid><![CDATA[BC5DAF65-FB11-4ED9-B392-10DCFC222A59]]></uid>
+        <windowHeight><![CDATA[705.000000]]></windowHeight>
+        <windowLocationX><![CDATA[0.000000]]></windowLocationX>
+        <windowLocationY><![CDATA[0.000000]]></windowLocationY>
+        <windowScrollOrigin><![CDATA[{2, 0}]]></windowScrollOrigin>
+        <windowWidth><![CDATA[1366.000000]]></windowWidth>
+    </SQLDocumentInfo>
+    <AllowsIndexRenamingOnInsert><![CDATA[1]]></AllowsIndexRenamingOnInsert>
+    <containerName><![CDATA[model controller orginal container]]></containerName>
+</SQLContainer>
