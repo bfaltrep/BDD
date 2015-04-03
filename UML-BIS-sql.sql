@@ -53,7 +53,6 @@ IDProduit INTEGER,
 IDCategorie INTEGER,
 Quantite INTEGER,
 `Prix unitaire HT ACHAT` INTEGER,
-`Prix unitaire TTC ACHAT` INTEGER,
 PRIMARY KEY (IDLivraison)
 );
 
@@ -75,7 +74,6 @@ Date DATE,
 IDRemise INTEGER,
 Valide INTEGER,
 PRIX_HT INTEGER,
-PRIX_TTC INTEGER,
 `Frais de port` INTEGER,
 PRIMARY KEY (IDCommande)
 );

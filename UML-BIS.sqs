@@ -308,7 +308,7 @@
         </location>
         <size>
             <width>260.00</width>
-            <height>180.00</height>
+            <height>160.00</height>
         </size>
         <zorder>8</zorder>
         <SQLField>
@@ -361,11 +361,6 @@
             <name><![CDATA[PRIX_HT]]></name>
             <type><![CDATA[INTEGER]]></type>
             <uid><![CDATA[31308290-FCDF-4F57-9FBB-060D7C46C8C6]]></uid>
-        </SQLField>
-        <SQLField>
-            <name><![CDATA[PRIX_TTC]]></name>
-            <type><![CDATA[INTEGER]]></type>
-            <uid><![CDATA[EC271840-D569-42D5-8757-0C7724917913]]></uid>
         </SQLField>
         <SQLField>
             <name><![CDATA[Frais de port]]></name>
@@ -661,7 +656,7 @@
         </location>
         <size>
             <width>245.00</width>
-            <height>140.00</height>
+            <height>120.00</height>
         </size>
         <zorder>10</zorder>
         <SQLField>
@@ -709,11 +704,6 @@
             <name><![CDATA[Prix unitaire HT ACHAT]]></name>
             <type><![CDATA[INTEGER]]></type>
             <uid><![CDATA[87E5F619-E620-4B32-8535-94045E4228FC]]></uid>
-        </SQLField>
-        <SQLField>
-            <name><![CDATA[Prix unitaire TTC ACHAT]]></name>
-            <type><![CDATA[INTEGER]]></type>
-            <uid><![CDATA[E6E70A8B-CF2F-4883-8DB5-872993A1BFBB]]></uid>
         </SQLField>
         <labelWindowIndex><![CDATA[0]]></labelWindowIndex>
         <uid><![CDATA[B9A4B47B-89E2-4629-A427-D5F17135634A]]></uid>
