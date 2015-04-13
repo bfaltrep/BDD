@@ -9,6 +9,8 @@
 \usepackage {hyperref} %table des matières avec liens ds le dossier.
 \usepackage{graphicx} %image
 \usepackage{setspace}
+\usepackage{float}
+\restylefloat{table}
 % Profondeur de \subsubsection = 3
 \setcounter{tocdepth}{3}     % Dans la table des matieres
 \setcounter{secnumdepth}{3} % Avec un numero.
@@ -19,7 +21,7 @@
 \pagestyle{plain}
 
 \title{Base de données}
-\author{Nous}
+\author{Troy CAMPBELL \\ Nathalie CRAEYE \\ Bérénice FALTREPT \\ Thibaut MORANT}
 \date{année 2014/2015}
 
 
@@ -33,22 +35,33 @@
 
 \textcolor{colortitre1}{\section*{Objectif du projet}} \addcontentsline{toc}{section}{Présentation}
 
+Nous avons choisit comme objectif de produire la base de données utilisée pour un site web de livraison de produits frais. Nous avons alors à gérer différents aspects du site : 
+\begin{itemize}
+	\item Les Clients ont un compte qui nous permet de conserver leurs données utiles à la livraison mais aussi de proposer des offres préférentielles qui sont détaillées dans la table \textit{Remise}. 
+	\item Les administrateurs ont accès à des comptes particuliers qui leur donne les droits nécessaires pour maintenir la base de données à jour.
+	\item Notre stock doit être à jour et nous permettre de connaître les quantités de produits que nous possédons dont la date de péremption nous permet de les vendre. \\ Nous avons donc opté pour stocker un maximum d'informations utiles sur chaque produit. Nous retenons donc les informations de livraison de chaque produit que nous avons en stock.
+	\item Nous conservons des informations sur les producteurs qui nous fournissent afin de garder une trace de nos achats.
+	\item Il existe par ailleurs des tables qui ont un rôle auxiliaire, telles que \textit{Ville} : Elle permet de nous assurer que les clients entrent des noms de ville existants et livrables.
+\end{itemize}
 
-IDENTIFIANTS SONT MAILS.
+
+
+
+%IDENTIFIANTS SONT MAILS.
 
 \textcolor{colortitre2}{\subsection*{Dépendances fonctionnelle}} \addcontentsline{toc}{subsection}{Dépendances fonctionnelle}
 
-\begin{table}
+\begin{table}[H]
     \label{multiprogram}
     \begin{tabular}{c|c|c|c|c|}
         \cline{2-5}
          & 1FN & 2FN & 3FN & BCNF \\
         \hline
-        \multicolumn{1}{|c|}{\hyperlink{Client}{Client}} & OK & OK & OK & OK \\
+        \multicolumn{1}{|c|}{\hyperlink{Client}{Client}} & Modifié & OK & OK & OK \\
         \hline
         \multicolumn{1}{|c|}{\hyperlink{Ville}{Ville}} & OK & OK & OK & OK \\
         \hline
-        \multicolumn{1}{|c|}{\hyperlink{Commande}{Commande}} & OK & OK & OK & OK \\
+        \multicolumn{1}{|c|}{\hyperlink{Commande}{Commande}} & Modifié & OK & OK & OK \\
         \hline
         \multicolumn{1}{|c|}{\hyperlink{Remise}{Remise}} & OK & OK & OK & OK \\
         \hline
@@ -73,28 +86,18 @@ IDENTIFIANTS SONT MAILS.
     \end{tabular}
 \end{table}
     
-\textcolor{colortitre3}{\subsubsection*{\hypertarget{CLient}{Client}}}
+\textcolor{colortitre3}{\subsubsection*{\hypertarget{Client}{Client}}}
     
 IDClient : Nom, Prenom, Livrable, Ville, Adresse, Telephone, Email, Mot De Passe, Date inscription, NBCommande.\\
 
 NF1:\\
 Des informations paraissent redondantes entre Adresse et Ville. Nous proposons donc une amélioration qui consiste à conserver à la place du nom de la ville, le code postal de la ville. Le champs Adresse ne contenant alors que le détail de l'adresse et non des informations sur la ville.\\
 Ville devient donc : CodePostal.
-\\OK.\\
-NF2 : \\
-Nous avons ici une clé primaire a un seul champs et tout les attributs dépendent de cette clé. \\OK.\\
-NF3 : \\
-Il n'y a pas de dépendances au sein de cette table autre que vers la clé primaire.\\ OK. \\
-BCNF : OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Ville}{Ville}}}
 
 CodePostal : Ville, Livrable.\\
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Commande}{Commande}}}
 
@@ -104,34 +107,17 @@ Prix\_HT : PRIX\_TTC\\
 NF1 : \\
 Il y a une forme de redondance entre les prix étant donné que notre gamme de produit implique un taux de TVA constant. Nous choisissons donc de placer notre TVA en variable globale sur le site web et de retirer l'attribut PRIX\_TTC de notre table.\\
 
-OK.\\
-
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Remise}{Remise}}}
 
 IDRemise : Type\_remise, Remise, Condition\_nb\_commande, Condition\_date\\
 
-TYPE REMISE SERA UN ENUM WECH MAGEULE
-
-
-
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
-
+%TYPE REMISE SERA UN ENUM WECH MAGEULE
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{ppc}{Produit\_par\_commandes}}}
 
 IDCommande, IDProduit, IDCategorie : Quantite\\
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Produit}{Produit}}}
 
@@ -140,30 +126,17 @@ Chaque produit est représenté par la clé primaire IDProduit, IDCategorie car 
 IDProduit, IDCategorie : Nom produit, Quantite, Date ajout, prix unitaire HT, date debut disponibilite, date fin disponibilite \\
 
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
-
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Categorie}{Categorie}}}
 
 La catégorie permet de spécifier s'il s'agit d'un fruit, légume, d'une viande, etc...
 
 IDCategorie : Nom categorie
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Stock}{Stock}}}
 
 IDLivraison, IDProduit, IDCategorie : Quantite, date de péremption
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Production}{Production}}}
 
@@ -171,39 +144,21 @@ Cette table n'ayant pas d'attribut non primaire, elle est irréductible sous tou
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Entreprise}{Entreprise}}}
 
-IDEntreprise : Nom entreprise, Rue, Ville, code postal, nom contact, contact
+IDEntreprise : Nom de l'entreprise, rue, ville, code postal, nom contact, contact
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{ppl}{Produit par livraison}}}
 
 IDLivraison : IDProduit, IDCategorie, Quantite, Prix unitaire HT à l'achat
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
-
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Livraison}{Livraison}}}
 
 IDLivraison : date livraison, IDEntreprise, Frais de port, Prix HT total
 
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Admin}{Admin}}}
 
 IDAdmin : mot de passe
-
-NF1: OK.\\
-NF2: OK.\\
-NF3: OK.\\
-BCNF: OK.\\
 
 \newpage
 \textcolor{colortitre1}{\section*{Conclusion}} \addcontentsline{toc}{section}{Conclusion}
