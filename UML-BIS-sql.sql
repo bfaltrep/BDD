@@ -60,7 +60,7 @@ IDProduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL,
 Quantite INTEGER,
 PrixUnitaireHTAchat INTEGER,
-PRIMARY KEY (IDLivraison)
+PRIMARY KEY (IDLivraison, IDProduit, IDCategorie)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Remise
