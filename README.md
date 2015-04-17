@@ -12,8 +12,8 @@ ajouter date de livraison pour commandes et livraison.
  Mardi : Tristan <br>
  <br>
  a faire <br>
- -rapport
- -modif tables
- -jMerise =>creer tables et relations
- -remplir table
- -requetes
+ -rapport <br>
+ -modif tables <br>
+ -jMerise =>creer tables et relations <br>
+ -remplir table <br>
+ -requetes <br>
