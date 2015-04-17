@@ -6,8 +6,10 @@ memo :
 <br>
 ajouter date de livraison pour commandes et livraison.
 <br>
+JMerise
+<br>
  samedi : Nathalie <br>
- Dimanche : Thibaut, Nathalie <br>
+ Dimanche : Thibaut, Nathalie(revoir requete) <br>
  Lundi : Bérénice <br>
  Mardi : Tristan <br>
  <br>
