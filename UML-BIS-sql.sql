@@ -118,7 +118,7 @@ CREATE TABLE Entreprise
 (
 IDEntreprise INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
 Ent_Nom VARCHAR(100) NOT NULL,
-Ent_Adresse VARCHAR(100) NOT NULL,
+Ent_Adresse VARmysqlCHAR(100) NOT NULL,
 Ent_Ville VARCHAR(100) NOT NULL,
 Ent_CodePostal VARCHAR(5) NOT NULL,
 Ent_NomContact VARCHAR(100),
@@ -160,90 +160,38 @@ ALTER TABLE Stock ADD FOREIGN KEY `IDPoduit_Stock_idxfk` (IDPoduit,IDCategorie) 
 ALTER TABLE Entreprise ADD FOREIGN KEY `Ville_Entreprise_idxfk` (Ent_Ville,Ent_CodePostal) REFERENCES Ville (NomVille,CodePostal);
 ALTER TABLE Client ADD FOREIGN KEY `Ville_Client_idxfk` (Cli_Ville,Cli_CodePostal) REFERENCES Ville (NomVille,CodePostal);
 
-/*
-ALTER TABLE LivraisonFournisseur ADD CONSTRAINT `IDEntreprise_LivraisonFournisseur_idxfk` FOREIGN KEY (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
-
-ALTER TABLE Produit ADD CONSTRAINT `IDCategorie_idxfk` FOREIGN KEY (IDCategorie) REFERENCES Categorie (IDCategorie);
-
-ALTER TABLE Production ADD CONSTRAINT `IDEntreprise_Production_idxfk` FOREIGN KEY (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
-
-ALTER TABLE Production ADD CONSTRAINT `IDProduit_Production_idxfk` FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
-
-ALTER TABLE ProduitParCommande ADD CONSTRAINT `IDCommande_idxfk` FOREIGN KEY (IDCommande) REFERENCES Commande (IDCommande);
-
-ALTER TABLE ProduitParCommande ADD CONSTRAINT `IDProduit_ProduitParCommande_idxfk` FOREIGN KEY (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
-
-ALTER TABLE ProduitParLivraison ADD CONSTRAINT `IDLivraisonFournisseur_idxfk` FOREIGN KEY (IDLivraisonFournisseur) REFERENCES LivraisonFournisseur (IDLivraisonFournisseur);
-
-ALTER TABLE ProduitParLivraison ADD CONSTRAINT `IDProduit_ProduitParLivraison_idxfk` FOREIGN KEY  (IDProduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
-
-ALTER TABLE Commande ADD CONSTRAINT `IdClient_idxfk` FOREIGN KEY (IdClient) REFERENCES Client (IDClient);
-
-ALTER TABLE Commande ADD CONSTRAINT `IDRemise_idxfk` FOREIGN KEY (IDRemise) REFERENCES Remise (IDRemise);
-
-ALTER TABLE Stock ADD CONSTRAINT `IDLivraisonFournisseur_Stock_idxfk` FOREIGN KEY (IDLivraisonFournisseur) REFERENCES LivraisonFournisseur (IDLivraisonFournisseur);
-
-ALTER TABLE Stock ADD CONSTRAINT `IDPoduit_Stock_idxfk` FOREIGN KEY (IDPoduit,IDCategorie) REFERENCES Produit (IDProduit,IDCategorie);
-
-ALTER TABLE Entreprise ADD CONSTRAINT `Ville_Entreprise_idxfk` FOREIGN KEY (CodePostal,Ville) REFERENCES Ville (CodePostal,NomVille);
-
-ALTER TABLE Client ADD CONSTRAINT `Ville_idxfk` FOREIGN KEY (CodePostal,Ville) REFERENCES Ville (CodePostal,NomVille);
-*/
-
-
-
-/*Ajout contenu*/
-
-
-
-
-
-
-
-/*
-INSERT INTO Client (Nom,Prenom,Adresse,CodePostal,Ville,Telephone,Email,MotDePasse,DateInscription,NBCommande) 
-VALUES ('Craeyes','Nathalie',' 24 rue des hortensias',33600,'Pessac',0677777777,'nathalie.craeyes@chezmoi.com','monmotdepasse',2015-04-10,2),
-VALUES ('Campbell','Troy','666 rue des bergers allemands',33000,'Lille',0688777777,'troy.campbell@chezmoi.com','monmotdepasse',2015-04-11,3),
-VALUES ('Faltrept','Berenice','Appt 27, res des Lucioles, avenue Résistence',46100,'Figeac',0646125875,'berenice.f@chezmoi.com','tatayoyo',2014-11-14,20),
-VALUES ('MORANT','Thibaut','4 rue des bruno',47000,'Agen', 064512378,'piloupilou@loupi.fr','loupiloupi',2014-01-25,70);
-
-INSERT INTO Entreprise (NomEntreprise,Adresse,Ville,CodePostal,NomContact,Contact)
-VALUES ('Le Rucher Fleuri','5 rue des marguerites','Eymet',33450,'Gerard Dumont',0610101010),
-VALUES ('Christophe Heraut', 'Impasse toutes fleuries', 'Paquey', 24380, 'Christophe Heraut'),
-VALUES ('Michael Bouyer', '19 chemin de planche', 24350, 'Mensignac', hetuyfylfxcv);
-*/
-
-
-
-
 
 /*Commandes*/
 
 /*
 Produit périmés encore en stock pour les retirer de notre réserve.
 */
+
 /*
-SELECT IDLivraisonFournisseur, NomProduit
+SELECT IDLivraisonFournisseur, Pro_Nom
 FROM Stock NATURAL JOIN Produit
-WHERE DATE(DatePeremption) < CURDATE()
-AND Quantite > 0;
+WHERE DATE(Sto_DatePeremption) < CURDATE()
+AND Sto_Quantite > 0;
 */
+
 /*
 je souhaite acheter de nouvelles tomates de barcelone. 
 Je cherche quel producteurs va me fournir avec les prix les plus intéressant.
 */
-/*
-SELECT IDEntreprise, IDProduit, NomEntreprise, NomContact, Contact
-FROM Production NATURAL JOIN Entreprise NATURAL JOIN Produit
-WHERE NomProduit = "tomates de barcelone";
 
-SELECT T1.NomEntreprise, T1.NomContact, T1.Contact, PrixTotalHT
+/*
+SELECT IDEntreprise, IDProduit, Ent_Nom, Ent_NomContact, Ent_Contact
+FROM ProduitFournisseur NATURAL JOIN Entreprise NATURAL JOIN Produit
+WHERE Pro_Nom = "quam pede lobortis ligula sit";
+
+SELECT T1.Ent_nom, T1.Ent_NomContact, T1.Ent_Contact, LF_PrixTotalHT
 FROM LivraisonFournisseur NATURAL JOIN ProduitParLivraison NATURAL JOIN (
-	SELECT IDEntreprise, IDProduit, NomEntreprise, NomContact, Contact
-	FROM Production NATURAL JOIN Entreprise NATURAL JOIN Produit
-	WHERE NomProduit = "tomates de barcelone") AS T1
-WHERE T1.IDProduit == IDProduit;
+	SELECT IDEntreprise, IDProduit, Ent_Nom, Ent_NomContact, Ent_Contact
+	FROM ProduitFournisseur NATURAL JOIN Entreprise NATURAL JOIN Produit
+	WHERE Pro_Nom = "quam pede lobortis ligula sit") AS T1
+WHERE T1.IDProduit = IDProduit;
 */
+
 /*
 Combien d'avocat d'espagne ont été livrées durant les dernières 5 semaines.
 */
@@ -253,10 +201,12 @@ Combien d'avocat d'espagne ont été livrées durant les dernières 5 semaines.
 /*
 Requete du moteur de recherche sur le site. Mot recherché : "avocat".
 */
+
 /*
 SELECT * 
 FROM Produit
 */
+
 /*
 Récupérer les données modifiables par le client sur son compte.
 */
