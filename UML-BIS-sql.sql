@@ -193,18 +193,24 @@ WHERE T1.IDProduit = IDProduit;
 */
 
 /*
-Combien d'avocat d'espagne ont été livrées durant les dernières 5 semaines.
+Combien d'avocat d'espagne ont été livrées durant l'interval d'une semaine donnée à aujourd'hui.
 */
 
-
+/*
+SELECT count(*)
+FROM Commande NATURAL JOIN Produit
+WHERE Pro_Nom = "avocat"
+AND Com_DateLivraison BETWEEN "date donnée" AND CURDATE();
+*/
 
 /*
 Requete du moteur de recherche sur le site. Mot recherché : "avocat".
 */
 
 /*
-SELECT * 
+SELECT *
 FROM Produit
+WHERE Pro_Nom = "avocat";
 */
 
 /*
@@ -212,5 +218,14 @@ Récupérer les données modifiables par le client sur son compte.
 */
 
 /*
-chercher la remise correspondante à une livraison.
+SELECT Cli_Prenom, Cli_Nom, Cli_Adresse, Cli_Ville, Cli_CodePostal, Cli_Telephone, Cli_Email, Cli_MotDePasse
+FROM Produit
+WHERE IDClient = "idclient";
+*/
+
+/*
+chercher la remise correspondante à une commande.
+SELECT Rem_Type, Rem_Valeur
+FROM Remise NATURAL JOIN Commande
+WHERE IDCommande = "idcommande";
 */
