@@ -1,8 +1,8 @@
 \documentclass[a4paper, 12pt]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[french]{babel}
-\usepackage[T1]{fontenc} % permettent d'utiliser tous les caractères du clavier.
-\usepackage{inputenc} % permettent d'utiliser tous les caractères du clavier.
+\usepackage[T1]{fontenc} %permettent d'utiliser tous les caractères du clavier.
+\usepackage{inputenc} %permettent d'utiliser tous les caractères du clavier.
 \usepackage[top=2.0cm, bottom=2.0cm, left=2.5cm, right=2.5cm]{geometry} %marges des pages
 \usepackage{color}
 \usepackage{fancyhdr} %apparence globale
@@ -11,45 +11,93 @@
 \usepackage{setspace}
 \usepackage{float}
 \restylefloat{table}
-% Profondeur de \subsubsection = 3
-\setcounter{tocdepth}{3}     % Dans la table des matieres
-\setcounter{secnumdepth}{3} % Avec un numero.
+%Profondeur de \subsubsection = 3
+\setcounter{tocdepth}{3}    %Dans la table des matieres
+\setcounter{secnumdepth}{3} %Avec un numero.
 
 \definecolor {colortitre1}{rgb}{0.7,0.1,0.1}
 \definecolor {colortitre2}{rgb}{0.7,0.5,0.1}
 \definecolor {colortitre3}{rgb}{0.6,0.7,0.1}
 \pagestyle{plain}
 
-\title{Base de données}
+\title{Projet en Base de données - Licence 3 Informatique}
 \author{Troy CAMPBELL \\ Nathalie CRAEYE \\ Bérénice FALTREPT \\ Thibaut MORANT}
 \date{année 2014/2015}
 
 
 
-
 \begin{document}
     \begin{spacing}{1.2}
-\maketitle%sert a afficher le title dans le document, sinon serait des méta données.
+\maketitle %sert a afficher le title dans le document, sinon serait des méta données.
 %\tableofcontents
+
+
 \newpage
+\textcolor{colortitre1}{\section*{Le projet}} \addcontentsline{toc}{section}{Présentation générale}
 
-\textcolor{colortitre1}{\section*{Objectif du projet}} \addcontentsline{toc}{section}{Présentation}
+\textcolor{colortitre2}{\subsection*{Les consignes}} \addcontentsline{toc}{subsection}{Les consignes principales}
+XXX
 
-Nous avons choisit comme objectif de produire la base de données utilisée pour un site web de livraison de produits frais. Nous avons alors à gérer différents aspects du site : 
+\textcolor{colortitre2}{\subsection*{Notre choix}} \addcontentsline{toc}{subsection}{Notre choix}
+Nous avons choisi comme objectif de produire la base de données qu'utiliserait \textbf{un primeur de produits FRAIS} pour son site web de livraison de produits. Comme toute entreprisen nous devons gérer différentes entités et aspects du site : 
 \begin{itemize}
-	\item Les Clients ont un compte qui nous permet de conserver leurs données utiles à la livraison mais aussi de proposer des offres préférentielles qui sont détaillées dans la table \textit{Remise}. 
-	\item Les administrateurs ont accès à des comptes particuliers qui leur donne les droits nécessaires pour maintenir la base de données à jour.
-	\item Notre stock doit être à jour et nous permettre de connaître les quantités de produits que nous possédons dont la date de péremption nous permet de les vendre. \\ Nous avons donc opté pour stocker un maximum d'informations utiles sur chaque produit. Nous retenons donc les informations de livraison de chaque produit que nous avons en stock.
-	\item Nous conservons des informations sur les producteurs qui nous fournissent afin de garder une trace de nos achats.
+	\item Les Clients - \textit{Client} : ils ont un compte qui nous permet de conserver leurs données utiles à la livraison mais aussi de leur proposer des offres préférentielles qui sont détaillées dans la table \textit{Remise}. 
+	\item Les administrateurs  - \textit{Administrateur} : ils ont accès à des comptes particuliers qui leur donnent les droits nécessaires pour maintenir la base de données à jour et leur permettent de communiquer les problèmes ou todo rapidement.
+	\item Notre stock - \textit{Produit} : il doit être à jour et nous permettre de connaître les quantités de produits que nous possédons, la date de péremption de chacun pour nous permettre de les vendre un jour J. \\ Nous avons donc opté pour stocker un maximum d'informations utiles sur tous les  produits stockés.
+	\item Les fournisseurs - \textit{Fournisseur} : nous conservons des informations sur les producteurs qui nous fournissent en produits frais afin de garder une trace de nos achats.
 	\item Il existe par ailleurs des tables qui ont un rôle auxiliaire, telles que \textit{Ville} : Elle permet de nous assurer que les clients entrent des noms de ville existants et livrables.
 \end{itemize}
 
 
 
+\newpage
+\textcolor{colortitre1}{\section*{La BDD en détail}} \addcontentsline{toc}{subsection}{Présentation détaillée}
 
-%IDENTIFIANTS SONT MAILS.
+La BBD "PrimeurEnLigne" est composée de 13 tables dont 9 qui représentent des entités et 4 qui sont des tables d'association.
 
-\textcolor{colortitre2}{\subsection*{Dépendances fonctionnelle}} \addcontentsline{toc}{subsection}{Dépendances fonctionnelle}
+\textcolor{colortitre2}{\subsection*{Les entités}}
+
+\textcolor{colortitre3}{\subsubsection*{Le Client}}
+Un client aura accès à un compte internet propre à ce site web, ce qui lui permettra d'accéder à des fonctionnalités non présentées à tous le public sur le site web comme : modifier ses données personnelles, passer sa commande de produits via un formulaire, ...
+Les attributs listés ci-dessous (de \textbf{la table Client}) seront renseignés par un internaute soit à son inscription sur le site web soit plus tard sur son compte personnel, via des pages web dédiées à ces fonctionnalités de renseignement :
+\begin{itemize}
+	\item cli\_email (VARCHAR) : à son inscription, le futur client doit rentrer une valeur qui lui permettra de se connecter sur le site et d'être contactable par l'entreprise. Le choix den faire l'identifiant des comptes clients assure l'unicité des comptes (car l'unicité des adresses mail est requise par les services de messagerie).
+	\item cli\_motDePasse (VARCHAR) : à son inscription, le futur client doit trouver un mot de passe (composé au minimum de XXX lettres et XX numéros). Il sera crypté grâce à une fonction php. Il est sauvegardé en clair (XXX) dans la table car cela nous permettra de le lui renvoyer en cas d'oubli.
+	\item cli\_nom (VARCHAR) : le futur client pourra nous renseigner son nom à l'inscription, plus tard ou jamais. Le moyen de communiquer avec lui ne le nécessite pas.
+	\item XXX cli\_sexe (ENUM {"F", "M"}): à son inscription, le futur client doit renseigner son sexe en cliquant sur l'un des deux boutons de type radio dans le formulaire html.
+	\item cli\_rue (VARCHAR) : à son inscription, le client devra renseigné précisément son numéro d'habitation (appartement, maison), sa rue (son arrondissement, son quartier, ...). Transformées en une seule chaine de caractères, ces données serviront à trouver la destination précise des livraisons et seront par la suite modifiables par le client (au cas où il déménage).
+	\item cli\_telephone (xxx) : c'est au futur client de choisir de le renseigner ou non, maintenant, plus tard ou jamais... Renseigné, il servira de moyen de contact plus direct et plus rapide avec le client.
+\end{itemize}
+Les attributs suivants sont des foreign keys dans la table Client et permettent d'assurer la fiabilité de l'adresse donnée par le client et d'obtenir des informations qui peuvent concerner la ville et donc peut être par la même occasion ses habitants (en cas de modification de la liste des villes cibles) :
+\begin{itemize}
+	\item vil\_codePostal (xxx) : champ à renseigner par le client au moment de son inscription. Il sera utilisé pour des statistiques sur la provenance de la clientèle et surtout, couplé à un nom de ville, il pourra servir à trouver la ville et arrondissement/quartier, auxquels seront destinées les commandes.
+	\item vil\_nomVille (VARCHAR) : champ à renseigner par le client au moment de son inscription.
+\end{itemize}
+Alors que les attributs suivants seront renseignés de façon automatique grâce à des fonctions html, php et/ou mysql implémentées :
+\begin{itemize}
+	\item cli\_id : identifiant numérique qui s'incrémentera automatiquement (grâce à l'AUTO\_INCREMENT dans la BDD) dès lors qu'un internaute s'inscrira sur le site web. Le choix de ce champ pour la clé primaire permettra des opérations telles l'obtention du nombre total de client ou la connaissance de l'inscription du n-ième client (avec n qui serait défini à l'avance).
+	\item cli\_nbCommande : valeur entière qui s'incrémentera dès lors qu'un client aura fini sa commande. Une fonction php prendra en paramètre la valeur de retour du bouton de validation de la commande et rajoutera 1 au nombre de commande du client.
+	\item cli\_dateInscription : date du jour de l'inscription du client qui sera récupérée au moment de la validation de l'inscription grâce à la fonction php date() ;
+\end{itemize}
+
+\textcolor{colortitre3}{\subsubsection*{La Ville}}
+Un objet de \textbf{la table Ville} est représenté par un code postal (XXX), un nom de ville (VARCHAR) et une variable booléenne (BOOL) qui nous permettra de savoir quelles populations sont livrables. Le choix de prendre comme clé primaire le couple (code postal, nom) a été déduit du fait qu'un code postal peut désigner des villes différentes (car il ne dépend pas des villes mais de bureaux distributeurs) et qu'un nom peut avoir été atribué à plusieurs villes, alors qu'en associant l'un et l'autre, nous favorisons l'unicité des objets.
+
+\textcolor{colortitre3}{\subsubsection*{Le Fournisseur}}
+Un objet de \textbf{la table Fournisseur} est représenté par les champs suivants :
+XXX
+
+
+\textcolor{colortitre2}{\subsection*{Les tables d'association}}
+XXX
+
+
+
+\newpage
+\textcolor{colortitre1}{\section*{Outils et opérations sur la BDD}} \addcontentsline{toc}{section}{Outils et opérations sur la BDD}
+
+
+\textcolor{colortitre2}{\subsection*{Dépendances fonctionnelles}} \addcontentsline{toc}{subsection}{Dépendances fonctionnelles}
 
 \begin{table}[H]
     \label{multiprogram}
@@ -97,7 +145,6 @@ Ville devient donc : CodePostal.
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Ville}{Ville}}}
 
 CodePostal : Ville, Livrable.\\
-
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Commande}{Commande}}}
 
@@ -158,11 +205,53 @@ IDLivraison : date livraison, IDEntreprise, Frais de port, Prix HT total
 
 \textcolor{colortitre3}{\subsubsection*{\hypertarget{Admin}{Admin}}}
 
-IDAdmin : mot de passe
+IDAdmin : mot de passe, nom, tel, email
+
+
+
+\textcolor{colortitre2}{\subsection*{Remplissage de la BDD}} \addcontentsline{toc}{subsection}{Remplissage de la BDD}
+
+
+
+
+
+\textcolor{colortitre2}{\subsection*{Outils de développement}} \addcontentsline{toc}{subsection}{Outils de développement}
+
+Github, pour un dépôt central des documents liés à ce projet. Utilisable et utilisés par les quatre étudiants. \\
+Mac OS, Linux, Windows, les systèmes d'exploitation sur lesquels nous avons travaillé. \\
+JMerise, logiciel pour créer graphiquement la bdd, puis pour créer le script associé de création de la bdd. \\
+Des sites web pour générer aléatoirement une base de données persistante, c'est-à-dire avec un millier de données par table. \\
+phpmyadmin, pour le serveur de la bdd \\
+mysql, pour le langage des requêtes, pour la bdd \\
+pdflatex pour le rappot \\
+
+
+
+\textcolor{colortitre2}{\subsection*{Quelques requêtes MySQL}} \addcontentsline{toc}{subsection}{Quelques requêtes MySQL}
+
+
+
+\textcolor{colortitre2}{\subsection*{Les schémas MCD et MLD de la BDD}} \addcontentsline{toc}{subsection}{Les schémas MCD et MLD de la BDD}
+
+\textcolor{colortitre3}{\subsubsection*{Le Modèle conceptuel des données (MCD)}}
+
+
+\textcolor{colortitre3}{\subsubsection*{Le Modèle logique des données (MLD)}}
+
 
 \newpage
 \textcolor{colortitre1}{\section*{Conclusion}} \addcontentsline{toc}{section}{Conclusion}
 
+\textcolor{colortitre2}{\subsection*{Les difficultés}} \addcontentsline{toc}{subsection}{Les difficultés}
+Trouver le sujet du projet. \\
+Trouver comment faire notre script de remplissage de la bdd. \\
+Trouver un logiciel qui nous permettrait de faire les schémas MCD, MLD et qui créerait un script de création d'une base de données. \\
+
+\textcolor{colortitre2}{\subsection*{Pistes d'amélioration}} \addcontentsline{toc}{subsection}{Pistes d'amélioration}
+Créer les pages html et les documents php, css et javascript pour éditer le site web lié à notre base de données. \\
+
+\textcolor{colortitre2}{\subsection*{Remerciements}} \addcontentsline{toc}{subsection}{Remerciements}
+Nous tenons à remercier nos professeurs et responsables de notre UE optionnelle, la BDD, de ce semestre, qui ont répondu à nos différentes interrogations et apporté des connaissances précises dans ce domaine.
 
 
 \end{spacing}
