@@ -59,8 +59,10 @@ CREATE TABLE ProduitParLivraison
 IDLivraisonFournisseur INTEGER NOT NULL UNIQUE,
 IDProduit INTEGER NOT NULL,
 IDCategorie INTEGER NOT NULL,
-PPL_Quantite INTEGER,
+PPL_QuantiteALaLivraison INTEGER,
 PPL_PrixUnitaireHTAchat INTEGER,
+PPL_QuantiteActuelle INTEGER,
+PPL_DatePeremption DATE,
 PRIMARY KEY (IDLivraisonFournisseur, IDProduit, IDCategorie)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -88,16 +90,6 @@ Com_FraisDePort INTEGER,
 PRIMARY KEY (IDCommande)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE Stock
-(
-IDLivraisonFournisseur INTEGER NOT NULL,
-IDPoduit INTEGER NOT NULL,
-IDCategorie INTEGER NOT NULL,
-Sto_Quantite INTEGER,
-Sto_DatePeremption DATE,
-PRIMARY KEY (IDLivraisonFournisseur,IDPoduit,IDCategorie)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
 CREATE TABLE Ville
 (
 NomVille VARCHAR(100) NOT NULL,
@@ -105,14 +97,6 @@ CodePostal VARCHAR(5) NOT NULL,
 Vil_Livrable TINYINT NOT NULL,
 PRIMARY KEY (NomVille,CodePostal)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*
-mysql> insert into Entreprise (Ent_Nom, Ent_Adresse, Ent_Ville, Ent_CodePostal, Ent_NomContact, Ent_Contact) values ('Dynabox', '6551 Aberg Trail', 'Pessac', 0, 'Richard Ward', '8-(548)457-0557');
-ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`bfaltrep/Entreprise`, CONSTRAINT `Entreprise_ibfk_1` FOREIGN KEY (`Ent_Ville`, `Ent_CodePostal`) REFERENCES `Ville` (`NomVille`, `CodePostal`))
-CODE POSTAL A 0 donc pas 2000 entrées, mais on s'en tappe.
-
-*/
-
 
 CREATE TABLE Entreprise
 (
