@@ -32,9 +32,16 @@ WHERE T1.IDProduit = IDProduit;
 Combien de commande d'avocat d'espagne ont été livrées durant l'interval d'une semaine donnée à aujourd'hui.
 */
 
+SELECT count(*)
+FROM Commande NATURAL JOIN Produit NATURAL JOIN ProduitParCommande
+WHERE Pro_Nom = "quam pede lobortis ligula sit"
+AND Com_DateLivraison BETWEEN "2014-10-10" AND CURDATE();
 
-SELECT Com_DateLivraison
-FROM Commande NATURAL JOIN Produit
+
+/*nbr d'avocats livrés depuis la date demandée*/
+
+SELECT SUM(PPC_Quantite)
+FROM Commande NATURAL JOIN Produit NATURAL JOIN ProduitParCommande
 WHERE Pro_Nom = "quam pede lobortis ligula sit"
 AND Com_DateLivraison BETWEEN "2014-10-10" AND CURDATE();
 
@@ -44,7 +51,7 @@ Requete du moteur de recherche sur le site. Mot recherché : "avocat".
 
 SELECT *
 FROM Produit
-WHERE Pro_Nom = "avocat";
+WHERE Pro_Nom = "quam pede lobortis ligula sit";
 
 /*
 Récupérer les données modifiables par le client sur son compte.
@@ -52,33 +59,35 @@ Récupérer les données modifiables par le client sur son compte.
 
 
 SELECT Cli_Prenom, Cli_Nom, Cli_Adresse, Cli_Ville, Cli_CodePostal, Cli_Telephone, Cli_Email, Cli_MotDePasse
-FROM Produit
-WHERE IDClient = "idclient";
+FROM Client
+WHERE IDClient = 3;
 
 
 /*chercher la remise correspondante à une commande.*/
 SELECT Rem_Type, Rem_Valeur
 FROM Remise NATURAL JOIN Commande
-WHERE IDCommande = "idcommande";
-
-
-
-
-
+WHERE IDCommande = 3;
 
 /**
  * Dans le cas où des bactéries mortelles ont été découvert sur un produit, il faut prévenir les clients pour qu’ils sachent qu’ils doivent aller chez le médecin:   
  *Exemple: Tous les clients qui ont reçu une livraison contenant des avocats d’Espagne entre le 3 Avril 2015 et le 10 Avril 2015.
  */
 
-Select * FROM Client WHERE Client.IDClient IN ( SELECT Commande.IDClient FROM Commande NATURAL JOIN ProduitParCommande WHERE Commande.Date BETWEEN "2015-04-03" AND "2015-04-10" AND ProduitParCommande.IDProduit=3234);
+Select * FROM Client WHERE Client.IDClient IN ( SELECT Commande.IDClient FROM Commande NATURAL JOIN ProduitParCommande WHERE Commande.Com_DateLivraison BETWEEN "2015-04-03" AND "2015-04-10" AND ProduitParCommande.IDProduit=3234);
 
 /**
  * Dans le cas où on veut considérer la ville non-livrable la plus rentable qu’on servira dans le futur … 
  * Exemple: La ville non-livrable avec le plus grand nombre de clients.  
  */
 
-SELECT Client.CodePostal, Client.NomVille, count(Client.IDClient) FROM Client NATURAL JOIN Ville WHERE Ville.livrable=0 GROUP BY (Client.CodePostal, Client.NomVille) LIMIT 1;   
+SELECT Client.Cli_CodePostal, Client.Cli_Ville, count(Client.IDClient) FROM Client NATURAL JOIN Ville WHERE Ville.Vil_Livrable=0 GROUP BY Client.Cli_CodePostal, Client.Cli_Ville ORDER BY count(Client.IDClient) DESC LIMIT 1;   
+
+
+/*
+
+VERIFIEES AU DESSUS PAS EN DESSOUS
+
+*/
 
 
 /**
