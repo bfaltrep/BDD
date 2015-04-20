@@ -3,7 +3,7 @@
 CREATE TABLE Admin
 (
 IDAdmin VARCHAR(100) NOT NULL UNIQUE,
-Adm_MotDePasse INTEGER NOT NULL,
+Adm_MotDePasse VARCHAR(100) NOT NULL,
 PRIMARY KEY (IDAdmin)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -17,7 +17,8 @@ PRIMARY KEY (IDCategorie)
 CREATE TABLE LivraisonFournisseur
 (
 IDLivraisonFournisseur INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-LF_Date DATE NOT NULL,
+LF_DateDemande DATE NOT NULL,
+LF_DateArrivee DATE NOT NULL,
 IDEntreprise INTEGER NOT NULL,
 LF_FraisDePort INTEGER NOT NULL,
 LF_PrixTotalHT INTEGER,
@@ -78,7 +79,8 @@ CREATE TABLE Commande
 (
 IDCommande INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
 IDClient INTEGER NOT NULL,
-Com_Date DATE,
+Com_DateDemande DATE,
+Com_DateLivraison DATE,
 IDRemise INTEGER,
 Com_Valide TINYINT,
 Com_PrixHT INTEGER,
@@ -99,10 +101,18 @@ PRIMARY KEY (IDLivraisonFournisseur,IDPoduit,IDCategorie)
 CREATE TABLE Ville
 (
 NomVille VARCHAR(100) NOT NULL,
-CodePostal INTEGER NOT NULL,
+CodePostal VARCHAR(5) NOT NULL,
 Vil_Livrable TINYINT NOT NULL,
 PRIMARY KEY (NomVille,CodePostal)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*
+mysql> insert into Entreprise (Ent_Nom, Ent_Adresse, Ent_Ville, Ent_CodePostal, Ent_NomContact, Ent_Contact) values ('Dynabox', '6551 Aberg Trail', 'Pessac', 0, 'Richard Ward', '8-(548)457-0557');
+ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`bfaltrep/Entreprise`, CONSTRAINT `Entreprise_ibfk_1` FOREIGN KEY (`Ent_Ville`, `Ent_CodePostal`) REFERENCES `Ville` (`NomVille`, `CodePostal`))
+CODE POSTAL A 0 donc pas 2000 entrées, mais on s'en tappe.
+
+*/
+
 
 CREATE TABLE Entreprise
 (
@@ -110,7 +120,7 @@ IDEntreprise INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
 Ent_Nom VARCHAR(100) NOT NULL,
 Ent_Adresse VARCHAR(100) NOT NULL,
 Ent_Ville VARCHAR(100) NOT NULL,
-Ent_CodePostal INTEGER NOT NULL,
+Ent_CodePostal VARCHAR(5) NOT NULL,
 Ent_NomContact VARCHAR(100),
 Ent_Contact VARCHAR(100),
 PRIMARY KEY (IDEntreprise)
@@ -123,7 +133,7 @@ Cli_Nom VARCHAR(100) NOT NULL,
 Cli_Prenom VARCHAR(100) NOT NULL,
 Cli_Adresse VARCHAR(100) NOT NULL,
 Cli_Ville VARCHAR(100) NOT NULL,
-Cli_CodePostal INTEGER NOT NULL,
+Cli_CodePostal VARCHAR(5) NOT NULL,
 Cli_Telephone INTEGER,
 Cli_Email VARCHAR(100) NOT NULL,
 Cli_MotDePasse VARCHAR(100) NOT NULL,
