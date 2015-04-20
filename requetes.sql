@@ -1,3 +1,71 @@
+
+/*
+Produit périmés encore en stock pour les retirer de notre réserve.
+*/
+
+
+SELECT IDLivraisonFournisseur, Pro_Nom
+FROM ProduitParLivraison NATURAL JOIN Produit
+WHERE DATE(PPL_DatePeremption) < CURDATE()
+AND PPL_QuantiteActuelle > 0;
+
+
+/*
+je souhaite acheter de nouvelles tomates de barcelone. 
+Je cherche quel producteurs va me fournir avec les prix les plus intéressant.
+*/
+
+
+SELECT IDEntreprise, IDProduit, Ent_Nom, Ent_NomContact, Ent_Contact
+FROM ProduitFournisseur NATURAL JOIN Entreprise NATURAL JOIN Produit
+WHERE Pro_Nom = "quam pede lobortis ligula sit";
+
+SELECT T1.Ent_nom, T1.Ent_NomContact, T1.Ent_Contact, LF_PrixTotalHT
+FROM LivraisonFournisseur NATURAL JOIN ProduitParLivraison NATURAL JOIN (
+	SELECT IDEntreprise, IDProduit, Ent_Nom, Ent_NomContact, Ent_Contact
+	FROM ProduitFournisseur NATURAL JOIN Entreprise NATURAL JOIN Produit
+	WHERE Pro_Nom = "quam pede lobortis ligula sit") AS T1
+WHERE T1.IDProduit = IDProduit;
+
+
+/*
+Combien de commande d'avocat d'espagne ont été livrées durant l'interval d'une semaine donnée à aujourd'hui.
+*/
+
+
+SELECT Com_DateLivraison
+FROM Commande NATURAL JOIN Produit
+WHERE Pro_Nom = "quam pede lobortis ligula sit"
+AND Com_DateLivraison BETWEEN "2014-10-10" AND CURDATE();
+
+/*
+Requete du moteur de recherche sur le site. Mot recherché : "avocat".
+*/
+
+SELECT *
+FROM Produit
+WHERE Pro_Nom = "avocat";
+
+/*
+Récupérer les données modifiables par le client sur son compte.
+*/
+
+
+SELECT Cli_Prenom, Cli_Nom, Cli_Adresse, Cli_Ville, Cli_CodePostal, Cli_Telephone, Cli_Email, Cli_MotDePasse
+FROM Produit
+WHERE IDClient = "idclient";
+
+
+/*chercher la remise correspondante à une commande.*/
+SELECT Rem_Type, Rem_Valeur
+FROM Remise NATURAL JOIN Commande
+WHERE IDCommande = "idcommande";
+
+
+
+
+
+
 /**
  * Dans le cas où des bactéries mortelles ont été découvert sur un produit, il faut prévenir les clients pour qu’ils sachent qu’ils doivent aller chez le médecin:   
  *Exemple: Tous les clients qui ont reçu une livraison contenant des avocats d’Espagne entre le 3 Avril 2015 et le 10 Avril 2015.
