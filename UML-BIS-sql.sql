@@ -129,8 +129,8 @@ PRIMARY KEY (IDClient)
 ALTER TABLE LivraisonFournisseur ADD FOREIGN KEY `IDEntreprise_LivraisonFournisseur_idxfk` (IDEntreprise) REFERENCES Entreprise (IDEntreprise); 
 ALTER TABLE Produit ADD FOREIGN KEY `IDCategorie_Produit_idxfk` (IDCategorie) REFERENCES Categorie (IDCategorie);
 
-ALTER TABLE Production ADD FOREIGN KEY `IDEntreprise_Production_idxfk` (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
-ALTER TABLE Production ADD FOREIGN KEY `IDProduit_Production_idxfk` (IDProduit) REFERENCES Produit (IDProduit);
+ALTER TABLE ProduitFournisseur ADD FOREIGN KEY `IDEntreprise_Production_idxfk` (IDEntreprise) REFERENCES Entreprise (IDEntreprise);
+ALTER TABLE ProduitFournisseur ADD FOREIGN KEY `IDProduit_Production_idxfk` (IDProduit) REFERENCES Produit (IDProduit);
 
 ALTER TABLE ProduitParCommande ADD FOREIGN KEY `IDCommande_ProduitParCommande_idxfk` (IDCommande) REFERENCES Commande (IDCommande);
 ALTER TABLE ProduitParCommande ADD FOREIGN KEY `IDProduit_ProduitParCommande_idxfk` (IDProduit) REFERENCES Produit (IDProduit);
@@ -138,8 +138,7 @@ ALTER TABLE ProduitParLivraison ADD FOREIGN KEY `IDLivraisonFournisseur_ProduitP
 ALTER TABLE ProduitParLivraison ADD FOREIGN KEY `IDProduit_ProduitParLivraison_idxfk` (IDProduit) REFERENCES Produit (IDProduit);
 ALTER TABLE Commande ADD FOREIGN KEY `IDClient_Commande_idxfk` (IDClient) REFERENCES Client (IDClient); 
 ALTER TABLE Commande ADD FOREIGN KEY `IDRemise_Commande_idxfk` (IDRemise) REFERENCES Remise (IDRemise); 
-ALTER TABLE Stock ADD FOREIGN KEY `IDLivraisonFournisseur_Stock_idxfk` (IDLivraisonFournisseur) REFERENCES LivraisonFournisseur (IDLivraisonFournisseur); 
-ALTER TABLE Stock ADD FOREIGN KEY `IDPoduit_Stock_idxfk` (IDPoduit) REFERENCES Produit (IDProduit);
+
 ALTER TABLE Entreprise ADD FOREIGN KEY `Ville_Entreprise_idxfk` (Ent_Ville,Ent_CodePostal) REFERENCES Ville (NomVille,CodePostal);
 ALTER TABLE Client ADD FOREIGN KEY `Ville_Client_idxfk` (Cli_Ville,Cli_CodePostal) REFERENCES Ville (NomVille,CodePostal);
 
