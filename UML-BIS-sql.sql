@@ -40,29 +40,27 @@ CREATE TABLE ProduitFournisseur
 (
 IDEntreprise INTEGER NOT NULL,
 IDProduit INTEGER NOT NULL,
-IDCategorie INTEGER NOT NULL,
-PRIMARY KEY (IDEntreprise,IDProduit,IDCategorie)
+PF_PrixUnitaireHT INTEGER,
+PRIMARY KEY (IDEntreprise,IDProduit)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE ProduitParCommande
 (
 IDCommande INTEGER NOT NULL,
 IDProduit INTEGER NOT NULL,
-IDCategorie INTEGER NOT NULL,
 PPC_Quantite INTEGER,
-PRIMARY KEY (IDCommande,IDProduit,IDCategorie)
+PRIMARY KEY (IDCommande,IDProduit)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE ProduitParLivraison
 (
-IDLivraisonFournisseur INTEGER NOT NULL UNIQUE,
+IDLivraisonFournisseur INTEGER NOT NULL,
 IDProduit INTEGER NOT NULL,
-IDCategorie INTEGER NOT NULL,
 PPL_QuantiteALaLivraison INTEGER,
 PPL_PrixUnitaireHTAchat INTEGER,
 PPL_QuantiteActuelle INTEGER,
 PPL_DatePeremption DATE,
-PRIMARY KEY (IDLivraisonFournisseur, IDProduit, IDCategorie)
+PRIMARY KEY (IDLivraisonFournisseur, IDProduit)
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE Remise
