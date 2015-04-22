@@ -1,4 +1,4 @@
-
+﻿
 /*
 Produit périmés encore en stock pour les retirer de notre réserve.
 */
@@ -142,7 +142,19 @@ FROM Client NATURAL JOIN (
 SELECT Cli_Email, Cli_Prenom, CLi_Nom FROM Client NATURAL JOIN (SELECT IDClient FROM Client NATURAL JOIN Commande WHERE Com_DateLivraison >= (SELECT LF_DateArrivee FROM LivraisonFournisseur NATURAL JOIN ProduitParLivraison WHERE (IDCategorie,IDProduit) IN (SELECT IDCategorie,IDProduit FROM Produit WHERE Pro_Nom = "quam pede lobortis ligula sit" ) AND IDEntreprise IN (SELECT IDEntreprise FROM Entreprise WHERE Ent_Nom = "Flashset"))) as t;
 
 /**
- * Dans le cas où on veut...
- *
+ * Dans le cas où on veut veut constater qu'il y a un pb de cohérence entre le nb de commandes livrées et le nb de produits 
+ * commandés sur la même période
  */
 
+//1. Faire la requête suivante pour trouver les commandes faites sur une période donnée //666 réps
+SELECT IDCommande 
+FROM Commande 
+WHERE Com_DateLivraison BETWEEN "2015-01-01" AND "2015-03-01";
+
+//2. Faire la requête suivante pour trouver ts les produits commandés sur la même période et donc qui proviennent des comandes pérécédentes //211 réps : résultat inférieur => il y a des commandes vides de produits
+SELECT * 
+FROM ProduitParCommande AS PPC
+WHERE PPC.IDCommande IN (
+	SELECT IDCommande
+	FROM Commande
+	WHERE Com_DateLivraison BETWEEN  "2015-01-01" AND "2015-03-01");
