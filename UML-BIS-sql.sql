@@ -139,4 +139,3 @@ ALTER TABLE Commande ADD FOREIGN KEY `IDRemise_Commande_idxfk` (IDRemise) REFERE
 
 ALTER TABLE Entreprise ADD FOREIGN KEY `Ville_Entreprise_idxfk` (Ent_Ville,Ent_CodePostal) REFERENCES Ville (NomVille,CodePostal);
 ALTER TABLE Client ADD FOREIGN KEY `Ville_Client_idxfk` (Cli_Ville,Cli_CodePostal) REFERENCES Ville (NomVille,CodePostal);
-
